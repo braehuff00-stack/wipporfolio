@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(){var t='light',u=new URL(location.href),q=u.searchParams.get('theme');try{if(q==='dark'||q==='light')localStorage.setItem('theme',q);if(localStorage.getItem('theme')==='dark')t='dark'}catch(e){if(q==='dark')t='dark'}if(u.searchParams.has('theme')){u.searchParams.delete('theme');history.replaceState(null,'',u)}document.documentElement.setAttribute('data-bs-theme',t)})();</script>
+  <title>Three-Point Lighting E-Learning Case Study | Braeden Huff</title>
+  <meta name="description" content="Three-point lighting e-learning lesson: a learner-centered design case study by Braeden Huff.">
+  <!-- Favicons (from the logo site): favicon.ico holds the 16px and 32px browser icons;
+       48px is the size Google Search shows; 180px is the iPhone/iPad home-screen icon -->
+  <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="48x48" href="../images/logo/favicons/48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/logo/favicons/180.png">
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Bootstrap 5 & Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Google Fonts: Bricolage Grotesque (400, 700) & Figtree (400, 700, italic 400, 700) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700&family=Figtree:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles -->
+  <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <a class="visually-hidden-focusable" href="#main">Skip to main content</a>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top site-nav" aria-label="Main navigation">
+    <div class="container-lg">
+      <a class="navbar-brand" href="../index.html" aria-label="Braeden Huff">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text"><span class="brand-name">Braeden Huff</span><span class="brand-tagline">UX Design &amp; Research</span></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../aboutme.html">About Me</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="true" href="../projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+        </ul>
+        <!-- Dark mode switch: right end of the navbar on lg, below the links in the phone menu -->
+        <div class="theme-toggle-wrap">
+          <button type="button" class="theme-toggle" role="switch" aria-checked="false" aria-label="Dark mode">
+            <span class="d-lg-none">Dark mode</span>
+            <span class="theme-toggle-track" aria-hidden="true">
+              <span class="theme-toggle-thumb"><i class="bi bi-sun-fill"></i><i class="bi bi-moon-stars-fill"></i></span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main id="main" class="container-lg flex-grow-1 main-content case-study">
+
+    <!-- Title -->
+    <header class="text-center mb-4 grow-in">
+      <h4 class="cs-eyebrow">Three-Point Lighting | E-Learning Lesson</h4>
+      <h1 class="mx-auto" style="max-width: 900px;">Teaching beginners to read, and recreate, three-point lighting.</h1>
+    </header>
+
+    <div class="row justify-content-center cs-section grow-in grow-in-delay">
+      <div class="col-12 col-lg-8">
+        <figure class="mb-0">
+          <img src="../images/project2/laptop-mockup.jpg" class="cs-image" alt="The revised lesson&rsquo;s home page on a laptop screen: the interactive light rig, with a subject lit by key, fill and back light beside its overhead lighting plan">
+          <figcaption class="small mt-2 text-center">The revised home page. The light rig turns on the key, fill and back light one at a time.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <section class="row cs-section" aria-labelledby="overview">
+      <div class="col-12 col-lg-2"><h4 id="overview">Project Overview</h4></div>
+      <div class="col-12 col-lg-10">
+        <p>As a class project for HCI 520 (Learner-Centered Design), I designed, built and tested a 30-minute e-learning lesson that teaches beginner photographers and filmmakers three-point lighting. In a pre/post study with 12 learners, average scores rose from 66% to 90% (effect size 1.52, p = 0.0036), and 10 of 12 learners improved.</p>
+        <p>I then redesigned the site to target the skill learners still struggled with and to make the lesson a little more game-like. The redesign has not been tested with learners yet.</p>
+        <a href="https://braehuff00-stack.github.io/3-point-lighting-lesson-eLearning/index.html" class="btn btn-berry" target="_blank" rel="noopener noreferrer">View the Live, Updated Version <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i></a>
+        <p class="small mt-2 mb-0">The updated version hasn&rsquo;t been tested with learners yet. The first version, the one I tested, is still live at <a href="https://3-pointlighting.netlify.app/" target="_blank" rel="noopener noreferrer">3-pointlighting.netlify.app</a>.</p>
+      </div>
+    </section>
+
+    <hr class="cs-divider cs-divider-tight">
+
+    <!-- Timeframe, Role & Tools -->
+    <div class="row cs-meta gy-4">
+      <div class="col-12 col-lg-4">
+        <p class="cs-emphasis mb-1"><em>Timeframe</em></p>
+        <p>10 weeks</p>
+      </div>
+      <div class="col-12 col-lg-4">
+        <p class="cs-emphasis mb-1"><em>My Role</em></p>
+        <ul class="list-unstyled">
+          <li>Solo project</li>
+          <li>Learning designer</li>
+          <li>UX researcher</li>
+          <li>Front-end developer</li>
+        </ul>
+      </div>
+      <div class="col-12 col-lg-4">
+        <p class="cs-emphasis mb-1"><em>Tools</em></p>
+        <ul class="list-unstyled">
+          <li>HTML, CSS, JavaScript</li>
+          <li>Google Forms &amp; Google Sheets</li>
+          <li>ShotDeck &amp; Lighting Diagram Maker</li>
+          <li>Bootstrap 5 &amp; SVG</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Case study tabs: the full write-up, or a TLDR of the problem, solution and outcome -->
+    <ul class="nav cs-tabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="full-tab" data-bs-toggle="tab" data-bs-target="#case-study-full" type="button" role="tab" aria-controls="case-study-full" aria-selected="true">Full Case Study</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tldr-tab" data-bs-toggle="tab" data-bs-target="#tldr" type="button" role="tab" aria-controls="tldr" aria-selected="false">TLDR</button>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="case-study-full" role="tabpanel" aria-labelledby="full-tab" tabindex="0">
+        <!-- The Challenge -->
+        <section class="row cs-section" aria-labelledby="challenge">
+          <div class="col-12 col-lg-2"><h4 id="challenge">The Challenge</h4></div>
+          <div class="col-12 col-lg-10">
+            <p class="cs-emphasis"><em>Design a self-paced lesson that measurably improves what learners can do, not just what they have read.</em></p>
+            <p>Lighting is a skill people usually learn on set by watching someone else, so the lesson had to turn a hands-on craft into something a beginner could practice on a screen. I picked three-point lighting because it draws on my undergraduate background in film and photography, and because it is visual and procedural. That made it a good test of whether interface choices could support higher-order skills like reading a lighting plan and recreating a shot.</p>
+          </div>
+        </section>
+
+        <!-- Goals -->
+        <section class="row cs-section" aria-labelledby="goals">
+          <div class="col-12 col-lg-2"><h4 id="goals">Goals</h4></div>
+          <div class="col-12 col-lg-10">
+            <p>Move learners past memorizing terms toward analyzing and applying lighting plans, and prove it with a pre/post test. I wrote four learning objectives (LOs). By the end of the lesson, learners will be able to:</p>
+            <ol>
+              <li>Remember the key, fill and back light.</li>
+              <li>Understand how to use a top-down lighting plan.</li>
+              <li>Organize the components of a lighting plan.</li>
+              <li>Apply a lighting plan to recreate an image.</li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- Design Process -->
+        <section class="cs-section" aria-labelledby="process">
+          <h4 id="process" class="mb-4">My Design Process</h4>
+          <ol class="process-steps has-iterate reveal">
+            <li><span class="step"><i class="bi bi-compass step-icon" aria-hidden="true"></i>Explore</span></li>
+            <li><span class="step"><i class="bi bi-search step-icon" aria-hidden="true"></i>Research</span></li>
+            <li><span class="step"><i class="bi bi-lightbulb step-icon" aria-hidden="true"></i>Ideate</span></li>
+            <li>
+              <span class="step-wrap">
+                <span class="step"><i class="bi bi-vector-pen step-icon" aria-hidden="true"></i>Prototype</span>
+                <span class="iterate-loop">Iterate <span class="iterate-arc" aria-hidden="true"></span></span>
+              </span>
+            </li>
+            <li>
+              <span class="step-wrap">
+                <span class="step"><i class="bi bi-clipboard-check step-icon" aria-hidden="true"></i>Test</span>
+                <span class="iterate-loop">Iterate <span class="iterate-arc" aria-hidden="true"></span></span>
+              </span>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Methods -->
+        <section class="cs-section" aria-labelledby="methods">
+          <h4 id="methods" class="mb-4">Methods</h4>
+          <ol class="process-steps reveal">
+            <li><span class="step">Learner Analysis</span></li>
+            <li><span class="step">Bloom&rsquo;s Taxonomy</span></li>
+            <li><span class="step">Wireframing</span></li>
+            <li class="iterate-next">
+              <span class="step">Pre/Post Testing</span>
+              <span class="iterate-connector"><span class="iterate-arrows" aria-hidden="true">&#8644;</span>Iterate</span>
+            </li>
+            <li><span class="step">Paired t-test</span></li>
+          </ol>
+        </section>
+
+        <!-- Research -->
+        <section class="cs-section" aria-labelledby="research">
+          <h2 id="research">Research</h2>
+          <p>Research focused on one job: defining exactly what learners should be able to do, and how I would know they could do it.</p>
+
+          <div class="row cs-section gy-4">
+            <div class="col-12 col-lg-6">
+              <h3>Learner Analysis</h3>
+              <p>The lesson is for learners in an introductory photography or cinematography course. They are motivated by the visual arts, and they already know that cameras need light, how to take a picture, and the basics of exposure (ISO, aperture, shutter speed).</p>
+            </div>
+            <div class="col-12 col-lg-6">
+              <h3>Scoping Down</h3>
+              <p>My proposal also covered the inverse square law and contrast ratios. I cut both: they belong later in a course, and removing them brought the lesson from 30 to 45 minutes down to 20 to 30. Every remaining topic had to serve one of the learning objectives.</p>
+            </div>
+          </div>
+
+          <div class="row cs-section gy-4 align-items-center">
+            <div class="col-12 col-lg-5">
+              <h3>Defining Success with Bloom&rsquo;s Taxonomy</h3>
+              <p>I classified each objective on Bloom&rsquo;s revised taxonomy (Krathwohl, 2002). Plotting them on the grid confirmed the lesson would move learners from remembering toward analyzing and applying.</p>
+            </div>
+            <div class="col-12 col-lg-7">
+              <div class="table-responsive reveal">
+                <table class="table mb-0">
+                  <caption class="small">The four learning objectives on Bloom&rsquo;s revised taxonomy</caption>
+                  <thead>
+                    <tr><th scope="col">LO</th><th scope="col">Learners will be able to&hellip;</th><th scope="col">Cognitive process</th><th scope="col">Knowledge type</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>1</td><td>Remember the key, fill and back light</td><td>Remember (1.1, 1.2)</td><td>Factual, conceptual</td></tr>
+                    <tr><td>2</td><td>Understand how to use a top-down lighting plan</td><td>Understand (2.1)</td><td>Conceptual, procedural</td></tr>
+                    <tr><td>3</td><td>Organize the components of a lighting plan</td><td>Analyze (4.2)</td><td>Conceptual</td></tr>
+                    <tr><td>4</td><td>Apply a lighting plan to recreate an image</td><td>Apply (3.2)</td><td>Procedural</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-callout">
+            <p class="mb-0"><strong>Research &rarr; Design:</strong> Each objective came with an assessment idea before any screen was designed, so the test and the lesson were planned together.</p>
+          </div>
+        </section>
+
+        <!-- Ideation -->
+        <section class="cs-section" aria-labelledby="ideation">
+          <h2 id="ideation">Ideation</h2>
+          <p>I structured the lesson as scaffolding: each section introduces only what the next one needs, and practice gets less guided as learners move toward the objectives at the top of the grid.</p>
+
+          <div class="row mt-4 mb-4">
+            <div class="col-12 col-lg-2"><h4>Lesson Flow</h4></div>
+            <div class="col-12 col-lg-10">
+              <ol>
+                <li><strong>Welcome and objectives</strong>, with an embedded pre-test</li>
+                <li><strong>Introduction:</strong> what three-point lighting is and why it is used, with key terms introduced early</li>
+                <li><strong>Light plans:</strong> how to read a bird&rsquo;s-eye diagram of subject, camera and lights, then a quick practice question</li>
+                <li><strong>Light sources:</strong> one page each for key, fill and back light, covering definition, purpose and how to spot it in a frame</li>
+                <li><strong>Breaking it down:</strong> a worked example where learners identify each light in a film still, then map those lights onto a lighting plan</li>
+                <li><strong>Post-test:</strong> the same questions as the pre-test, reordered</li>
+              </ol>
+            </div>
+          </div>
+
+          <h3>Design Decisions Tied to Principles</h3>
+          <div class="row g-4 mt-1">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card lit-card h-100">
+                <div class="card-body">
+                  <p class="cs-emphasis mb-2"><em>Segmenting</em></p>
+                  <p class="mb-0">One light type per page keeps new information on a screen within working memory.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card lit-card h-100">
+                <div class="card-body">
+                  <p class="cs-emphasis mb-2"><em>Contiguity</em></p>
+                  <p class="mb-0">Labels sit inside the image, with text directly above or below, so learners never hunt for what the text refers to.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card lit-card h-100">
+                <div class="card-body">
+                  <p class="cs-emphasis mb-2"><em>Pre-training</em></p>
+                  <p class="mb-0">Key terms are named on the first lesson page, so later pages build on vocabulary learners already have.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card lit-card h-100">
+                <div class="card-body">
+                  <p class="cs-emphasis mb-2"><em>Worked examples &amp; practice</em></p>
+                  <p class="mb-0">Worked examples with optional hints, then less help, move learners from recognizing lights to placing them.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card lit-card h-100">
+                <div class="card-body">
+                  <p class="cs-emphasis mb-2"><em>Personalization</em></p>
+                  <p class="mb-0">A conversational, second-person tone makes a technical topic less intimidating.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card lit-card h-100">
+                <div class="card-body">
+                  <p class="cs-emphasis mb-2"><em>Coherence &amp; learner control</em></p>
+                  <p class="mb-0">Nothing on screen the objectives don&rsquo;t need. The table of contents links to every page except the post-test, so learners can go back freely without skipping to the test.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Wireframes -->
+        <section class="row justify-content-center cs-section gy-4" aria-labelledby="lofi">
+          <div class="col-12">
+            <h2 id="lofi">Wireframes</h2>
+            <p>I sketched six wireframe screens in the design proposal. One idea carried through to the final site: show a frame without labels first so learners analyze it themselves, then reveal the labeled version.</p>
+          </div>
+          <div class="col-12">
+            <div class="row g-4 justify-content-center align-items-start">
+              <figure class="col-12 col-md-6 mb-0">
+                <img src="../images/project2/wireframe-light-plans.png" class="cs-image reveal" alt="Wireframe of the light plans page with a labeled plan and a practice question">
+                <figcaption class="small mt-2">Introducing light plans, with a practice question.</figcaption>
+              </figure>
+              <figure class="col-12 col-md-6 mb-0">
+                <img src="../images/project2/wireframe-lights-as-a-system.png" class="cs-image reveal" alt="Wireframe of the lights-as-a-system page pairing a labeled image with its light plan">
+                <figcaption class="small mt-2">Connecting a lit image to its plan.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- First Version -->
+        <section class="cs-section" aria-labelledby="v1">
+          <h2 id="v1">Prototyping the First Version</h2>
+
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2"><h4>Approach</h4></div>
+            <div class="col-12 col-lg-10">
+              <p>I hand-coded the first version in HTML and CSS as an 11-page site, deployed it to Netlify, and used it as a working prototype to test with real learners. Its purpose was learning outcomes, so visual design was not a priority.</p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2"><h4>Key Features</h4></div>
+            <div class="col-12 col-lg-10">
+              <ul>
+                <li><strong>Real film stills as teaching material.</strong> Frames from films like <em>Middle of Nowhere</em> and <em>Priscilla</em> (sourced from ShotDeck) were paired with lighting plans made in Lighting Diagram Maker, so learners practiced on the kind of images they want to make.</li>
+                <li><strong>Worked examples with fading support.</strong> On &ldquo;Identifying lights,&rdquo; learners pick out the key, fill and back light in a film still. Optional hints link back to the relevant page, and &ldquo;click to reveal&rdquo; shows the answer with its reasoning. &ldquo;Mapping lights&rdquo; then uses the same still with less help and asks learners to place each light on a plan.</li>
+                <li><strong>Built-in measurement.</strong> The pre-test and post-test were Google Forms embedded in the first and last pages, with matching anonymous IDs so I could pair each learner&rsquo;s scores.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-12 col-lg-2"><h4>The Test</h4></div>
+            <div class="col-12 col-lg-10">
+              <p>Eight questions worth 14 points, each mapped to an objective. LO 1 had four recall and image questions. LO 2 had one &ldquo;light plans are&hellip;&rdquo; question. LO 3 asked learners to label a plan&rsquo;s icons. LO 4 had two questions that matched lights in a film still to positions on its plan (<em>Top Gun: Maverick</em> and <em>13th</em>).</p>
+            </div>
+          </div>
+          <div class="row g-4">
+            <figure class="col-12 col-md-6 mb-0">
+              <img src="../images/project2/v1-objectives-pretest.jpg" class="cs-image reveal" alt="First version: objectives page with the embedded pre-test">
+              <figcaption class="small mt-2">Objectives with the embedded pre-test.</figcaption>
+            </figure>
+            <figure class="col-12 col-md-6 mb-0">
+              <img src="../images/project2/v1-fill-light.jpg" class="cs-image reveal" alt="First version: the fill light page">
+              <figcaption class="small mt-2">The fill light page.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <!-- Usability Testing Round 1 -->
+        <section class="cs-section" aria-labelledby="ut1">
+          <h2 id="ut1">Testing with Learners</h2>
+
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2"><h4>Study Design</h4></div>
+            <div class="col-12 col-lg-10">
+              <p>Twelve learners took the pre-test, the lesson and the post-test.</p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2"><h4>Metrics Tracked</h4></div>
+            <div class="col-12 col-lg-10">
+              <ul>
+                <li>Paired pre- and post-test scores for each learner</li>
+                <li>Item-level results, mapped to each learning objective</li>
+                <li>Effect size (Cohen&rsquo;s d) and significance (paired t-test)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2"><h4>Success Criteria</h4></div>
+            <div class="col-12 col-lg-10">
+              <p>A statistically significant gain from pre-test to post-test, with improvement on every objective, including the higher-order ones.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-lg-2"><h4>Results</h4></div>
+            <div class="col-12 col-lg-10">
+              <div class="cs-callout d-flex flex-wrap align-items-center gap-3 mb-3">
+                <span class="stat">66% &rarr; 90%</span>
+                <span>Average score, with a large effect (d = 1.52, p = 0.0036)</span>
+              </div>
+              <p>Ten of the 12 learners improved, one scored perfectly on both tests, and one dropped. The average told me the lesson worked. The item-level data told me where it worked, and that is what shaped the next version.</p>
+              <ul>
+                <li><strong>Recall improved the most (LO 1).</strong> Every learner could identify the fill light after the lesson, compared with 4 of 12 before.</li>
+                <li><strong>One question measured nothing (LO 3).</strong> Everyone already labeled the plan&rsquo;s camera, lights and subject correctly on the pre-test. A harder item is needed to show learning there.</li>
+                <li><strong>Transfer was the weak spot (LO 4).</strong> On the <em>13th</em> plan, only one more learner got it right after the lesson. The errors that remained were mostly key and fill swapped on a plan (4 of 12 learners), including the one learner whose score dropped.</li>
+                <li><strong>One question was confusingly worded (LO 2).</strong> The &ldquo;select all that apply&rdquo; item with an &ldquo;All of the above&rdquo; option rose only from 4 to 8, and several wrong answers were partly right.</li>
+              </ul>
+              <p><strong>Limitations.</strong> The sample was small (12), and some participants were adjacent to the target audience rather than in it, so the effect size is probably inflated. The study measured immediate recall, not retention.</p>
+              <p class="small"><em>The forms were scored out of 14 points and rescaled to 10. For this case study I recomputed every score from the raw responses, because the pre-test form had graded question 1 against the wrong answer. The class report&rsquo;s figures were 67%, d = 1.53 and p = 0.0047; the conclusion is the same.</em></p>
+              <figure class="my-4">
+                <img src="../images/project2/test-question-8.jpg" class="cs-image reveal" alt="Test question 8: a still from the film 13th beside its lighting plan, with lights A, B and C to match">
+                <figcaption class="small mt-2">Question 8, the hardest LO 4 item: match each light in a still from <em>13th</em> to its position on the plan.</figcaption>
+              </figure>
+              <div class="cs-callout">
+                <p class="mb-0"><strong>What it pointed to:</strong> The lesson was strongest at recall and weakest at applying a plan to a new image. Learners needed a way to practice how lights change an image, not just read about it.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Before / after slider -->
+        <div class="row justify-content-center cs-section">
+          <figure class="col-12 col-lg-8 mb-0 reveal">
+            <div class="ba-slider">
+              <img src="../images/project2/v2-identifying-lights.jpg" class="ba-img" alt="After: the revised Identifying lights page, with answer buttons beside the film still">
+              <img src="../images/project2/v1-identifying-lights.jpg" class="ba-img ba-before" alt="Before: the first version of the Identifying lights page, with click-to-reveal answers">
+              <span class="ba-label ba-label-before" aria-hidden="true">Before</span>
+              <span class="ba-label ba-label-after" aria-hidden="true">After</span>
+              <span class="ba-handle" aria-hidden="true"></span>
+              <input type="range" class="ba-range" min="0" max="100" value="50" aria-label="Before and after comparison: slide to reveal more of the before or after image">
+            </div>
+            <figcaption class="small mt-2 text-center">Identifying lights, before and after: drag to compare</figcaption>
+          </figure>
+        </div>
+
+        <!-- Usability Testing Round 2 -->
+        <section class="cs-section" aria-labelledby="ut2">
+          <h2 id="ut2">Implementing the Revised Site</h2>
+
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2"><h4>Goal</h4></div>
+            <div class="col-12 col-lg-10">
+              <p>The revised site adds the visual design the first version set aside, plus a layer of gamification aimed at the LO 4 practice gap: learners see in real time what changing the lights does to an image. It keeps the tested lesson flow but rebuilds how learners can interact with it in real time. Each major change answers a finding from testing or a discovered gap.</p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2"><h4>What Changed</h4></div>
+            <div class="col-12 col-lg-10">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr><th scope="col">What testing or review showed</th><th scope="col">What changed in the revised site</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>The report called for &ldquo;a way to have learners interact with a simulation to support LO 3 and 4&rdquo;</td><td><strong>An interactive light rig.</strong> A two-panel view shows the subject as the camera sees it beside its overhead lighting plan. Learners switch the key, fill and back light on and off, and a caption explains each combination.</td></tr>
+                    <tr><td>Learners still swapped key and fill on plans (4 of 12)</td><td>The rig puts key and fill on opposite sides of the camera and shows what each does to the face. It appears on each light-source page and lights up in sequence on the home page. <em>(Linking the rig to this error is my inference; it was not tested.)</em></td></tr>
+                    <tr><td>&ldquo;Click to reveal&rdquo; feedback was rated only partial, and my presentation called for dynamic feedback</td><td><strong>Answer buttons with real feedback.</strong> A wrong pick is struck through with &ldquo;Not that one. Try again.&rdquo; The right one turns green and shows why. &ldquo;Need a reminder?&rdquo; hints link back to the relevant page.</td></tr>
+                    <tr><td>Learners analyze a frame best before seeing labels</td><td><strong>Labeled/unlabeled toggle</strong> on the opening film still, replacing two stacked images</td></tr>
+                    <tr><td>The embedded forms needed scrolling and reminders to submit</td><td>An &ldquo;open in a new tab&rdquo; fallback and a clearer submit reminder under each form</td></tr>
+                    <tr><td>My own outline note: name the Next and Previous buttons</td><td><strong>Wayfinding:</strong> named buttons (&ldquo;Next: The fill light&rdquo;), &ldquo;Page X of 9,&rdquo; and a redesigned table of contents</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2"><h4>Visual &amp; Accessibility</h4></div>
+            <div class="col-12 col-lg-10">
+              <p>I moved the layout to Bootstrap 5 so it works on phones. Body text is set in Atkinson Hyperlegible (designed for low-vision readers) with Archivo headings. A dotted &ldquo;grid paper&rdquo; background echoes the lighting plans. I also added a skip link, alt text on every film still, ARIA labels on the rig, a reduced-motion setting for the home animation, and footnoted film sources on every page.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-lg-2"><h4>Not Yet Validated</h4></div>
+            <div class="col-12 col-lg-10">
+              <div class="cs-callout mb-3">
+                <p class="mb-0"><strong>What it doesn&rsquo;t do yet:</strong> The revised site has not been tested with learners, so I can&rsquo;t claim it raises scores. Learners can switch lights on and off but can&rsquo;t yet move them, which is what LO 4 needs most. The rig also doesn&rsquo;t appear on the Mapping lights page, where that confusion shows up.</p>
+              </div>
+              <figure class="col-12 col-md-8 mb-0">
+                <img src="../images/project2/v2-practice-wrong-answer.png" class="cs-image reveal" alt="Revised practice question with a hint open and a wrong answer struck through">
+                <figcaption class="small mt-2">In the revised site, a wrong answer is struck through and the learner tries again.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- Before & After -->
+        <section class="cs-section" aria-labelledby="before-after">
+          <h2 id="before-after">Before and After</h2>
+          <div class="row g-4">
+            <div class="col-12 col-md-6">
+              <figure>
+                <img src="../images/project2/v1-key-light.jpg" class="cs-image reveal" alt="Before: the first version of the key light page, a plain single-column page with one labeled film still">
+                <figcaption class="small mt-2">Before: the key light page in the first version.</figcaption>
+              </figure>
+            </div>
+            <div class="col-12 col-md-6">
+              <figure>
+                <img src="../images/project2/v2-key-light.jpg" class="cs-image reveal" alt="After: the revised key light page, with a definition table, the labeled film still and a Try it light rig">
+                <figcaption class="small mt-2">After: the revised key light page, ending with a &ldquo;Try it&rdquo; light rig.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- Prototype -->
+        <section class="cs-section" aria-labelledby="prototype">
+          <h2 id="prototype" class="mb-3">The Light Rig</h2>
+          <p>Learners switch each light and see the result on camera and on the plan at once.</p>
+          <a href="https://braehuff00-stack.github.io/3-point-lighting-lesson-eLearning/index.html" class="btn btn-berry mb-4" target="_blank" rel="noopener noreferrer">Try it Here <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i></a>
+          <img class="cs-image reveal" src="../images/project2/light-rig-demo.gif" alt="Animated light rig: key, fill and back lights switching on and off while the subject and plan update">
+        </section>
+
+        <!-- Closing -->
+        <section class="row cs-section" aria-labelledby="closing">
+          <div class="col-12 text-center"><h4 id="closing">Closing / Future Work</h4></div>
+          <div class="col-12">
+            <p>The biggest lesson was that an average can hide the story. A 24-point gain looked like success, but the item-level data showed the lesson was strongest at recall and weakest at the objective I cared about most: applying a plan to a new image.</p>
+            <ul>
+              <li><strong>Design the test as carefully as the lesson.</strong> One question was already at ceiling and another was confusingly worded. Both made it harder to tell what the lesson actually taught.</li>
+              <li><strong>Match interactivity to the level of the objective.</strong> Static pages with click-to-reveal answers worked for recall. Higher-order goals needed something learners could act on, which led to the light rig.</li>
+              <li><strong>Plot objectives first, then write them.</strong> Placing each objective on Bloom&rsquo;s grid before designing screens kept the lesson focused on four goals and lined the test up with them.</li>
+            </ul>
+            <p><strong>Next steps.</strong> Replace the LO 3 question with a harder one, then rerun the pre/post study with a larger group of beginners to see whether the revised site closes the LO 4 gap. After that, make the lesson more of a game: learners move lights around a 2D lighting plan and watch the result &ldquo;on camera&rdquo; as they go.</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- TLDR: the problem, the solution and the outcome at a glance -->
+      <div class="tab-pane fade" id="tldr" role="tabpanel" aria-labelledby="tldr-tab" tabindex="0">
+        <!-- The Problem -->
+        <section class="row cs-section" aria-labelledby="tldr-problem">
+          <div class="col-12 col-lg-2"><h4 id="tldr-problem">The Problem</h4></div>
+          <div class="col-12 col-lg-10">
+            <p class="cs-emphasis"><em>Lighting is usually learned on set, by watching someone else.</em></p>
+            <p>The challenge was to turn that hands-on craft into a self-paced, 30-minute lesson that measurably improves what beginner photographers and filmmakers can do, like reading a lighting plan and recreating a shot, not just what they can recall.</p>
+          </div>
+        </section>
+
+        <!-- The Solution -->
+        <section class="row cs-section" aria-labelledby="tldr-solution">
+          <div class="col-12 col-lg-2"><h4 id="tldr-solution">The Solution</h4></div>
+          <div class="col-12 col-lg-10">
+            <p>I designed, built and tested a lesson around four learning objectives, from naming the key, fill and back light up to applying a lighting plan to a new image, and measured it with a pre/post test.</p>
+            <p>Testing showed learners were weakest at applying a plan: many still swapped key and fill. So I redesigned the site around practice:</p>
+            <ul>
+              <li><strong>An interactive light rig</strong> shows the subject as the camera sees it beside the overhead plan, as learners switch each light on and off.</li>
+              <li><strong>Answer buttons with real feedback</strong> strike through wrong picks, explain the right one and link back to hints.</li>
+              <li><strong>Clearer wayfinding</strong> with named Next buttons, page numbers and a redesigned table of contents.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- The Outcome -->
+        <section class="row cs-section" aria-labelledby="tldr-outcome">
+          <div class="col-12 col-lg-2"><h4 id="tldr-outcome">The Outcome</h4></div>
+          <div class="col-12 col-lg-10">
+            <div class="cs-callout d-flex flex-wrap align-items-center gap-3 mb-3">
+              <span class="stat">66% &rarr; 90%</span>
+              <span>Average score, with a large effect (d = 1.52, p = 0.0036)</span>
+            </div>
+            <p>Ten of the 12 learners improved. The redesigned site hasn&rsquo;t been tested with learners yet; the next step is to rerun the study with a larger group of beginners to see whether it closes the gap in applying a plan.</p>
+            <a href="https://braehuff00-stack.github.io/3-point-lighting-lesson-eLearning/index.html" class="btn btn-berry" target="_blank" rel="noopener noreferrer">View the Live, Updated Version <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i></a>
+          </div>
+        </section>
+
+        <div class="text-center cs-section">
+          <button type="button" class="btn btn-berry btn-lg" data-show-tab="#full-tab">Read the Full Case Study<svg class="btn-arrow ms-2" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8h11M9.5 4l4 4-4 4"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <a href="../projects.html" class="btn btn-outline-moss"><i class="bi bi-arrow-left me-1" aria-hidden="true"></i> Back to Projects</a>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container-lg">
+      <div class="footer-inner">
+        <p>Copyright &copy; Braeden Huff | 2026</p>
+        <a class="social-link" href="https://www.linkedin.com/in/braeden-huff" target="_blank" rel="noopener noreferrer" aria-label="Braeden Huff on LinkedIn (opens in a new tab)">
+          <i class="bi bi-linkedin" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/theme.js"></script>
+  <script>
+    // Before / after slider: the divider sits at the range input's value, and a
+    // label hides once the divider crosses it (it reappears when it moves back)
+    document.querySelectorAll('.ba-slider').forEach((slider) => {
+      const range = slider.querySelector('.ba-range');
+      const beforeLabel = slider.querySelector('.ba-label-before');
+      const afterLabel = slider.querySelector('.ba-label-after');
+      const update = (percent = Number(range.value)) => {
+        slider.style.setProperty('--pos', `${percent}%`);
+        const box = slider.getBoundingClientRect();
+        const divider = box.left + (box.width * percent) / 100;
+        beforeLabel.classList.toggle('is-hidden', divider < beforeLabel.getBoundingClientRect().right);
+        afterLabel.classList.toggle('is-hidden', divider > afterLabel.getBoundingClientRect().left);
+      };
+
+      // Touch screens only let a range input be dragged by its thumb, and this one's
+      // thumb is hidden, so a finger drag did nothing (only taps moved it). Follow
+      // the pointer directly instead: press anywhere on the image and drag sideways.
+      const follow = (e) => {
+        const box = slider.getBoundingClientRect();
+        const percent = Math.min(Math.max((e.clientX - box.left) / box.width, 0), 1) * 100;
+        range.value = percent;  // keeps keyboard and screen-reader position in step
+        update(percent);
+      };
+      let dragging = false;
+      range.addEventListener('pointerdown', (e) => {
+        dragging = true;
+        try { range.setPointerCapture(e.pointerId); } catch (err) { /* keep dragging without capture */ }
+        follow(e);
+      });
+      range.addEventListener('pointermove', (e) => { if (dragging) follow(e); });
+      ['pointerup', 'pointercancel'].forEach((type) => range.addEventListener(type, () => { dragging = false; }));
+
+      range.addEventListener('input', () => update());
+      window.addEventListener('resize', () => update());
+      update();
+    });
+  </script>
+  <script>
+    // Grow images, wireframes and graphics in as they scroll into view
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      reveals.forEach((el) => observer.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add('is-visible'));
+    }
+  </script>
+  <script>
+    // Case study tabs: a #tldr link opens the TLDR, the address follows the open
+    // tab, and the TLDR's button switches back to the full case study
+    const tldrTab = document.getElementById('tldr-tab');
+    if (location.hash === '#tldr') bootstrap.Tab.getOrCreateInstance(tldrTab).show();
+    document.querySelectorAll('.cs-tabs [data-bs-toggle="tab"]').forEach((tab) => {
+      tab.addEventListener('shown.bs.tab', () => {
+        history.replaceState(null, '', tab === tldrTab ? '#tldr' : location.pathname + location.search);
+        window.dispatchEvent(new Event('resize'));  // re-measure the before/after slider labels
+      });
+    });
+    document.querySelectorAll('[data-show-tab]').forEach((button) => {
+      button.addEventListener('click', () => {
+        bootstrap.Tab.getOrCreateInstance(document.querySelector(button.dataset.showTab)).show();
+        const smooth = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+        document.querySelector('.cs-tabs').scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+      });
+    });
+  </script>
+</body>
+</html>

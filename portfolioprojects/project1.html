@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(){var t='light',u=new URL(location.href),q=u.searchParams.get('theme');try{if(q==='dark'||q==='light')localStorage.setItem('theme',q);if(localStorage.getItem('theme')==='dark')t='dark'}catch(e){if(q==='dark')t='dark'}if(u.searchParams.has('theme')){u.searchParams.delete('theme');history.replaceState(null,'',u)}document.documentElement.setAttribute('data-bs-theme',t)})();</script>
+  <title>Mosaic Case Study | Braeden Huff</title>
+  <meta name="description" content="Mosaic: a UX case study for a unified media-tracking app.">
+  <!-- Favicons (from the logo site): favicon.ico holds the 16px and 32px browser icons;
+       48px is the size Google Search shows; 180px is the iPhone/iPad home-screen icon -->
+  <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="48x48" href="../images/logo/favicons/48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/logo/favicons/180.png">
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Bootstrap 5 & Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Google Fonts: Bricolage Grotesque (400, 700) & Figtree (400, 700, italic 400, 700) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700&family=Figtree:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles -->
+  <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <a class="visually-hidden-focusable" href="#main">Skip to main content</a>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top site-nav" aria-label="Main navigation">
+    <div class="container-lg">
+      <a class="navbar-brand" href="../index.html" aria-label="Braeden Huff">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text"><span class="brand-name">Braeden Huff</span><span class="brand-tagline">UX Design &amp; Research</span></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../aboutme.html">About Me</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="true" href="../projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+        </ul>
+        <!-- Dark mode switch: right end of the navbar on lg, below the links in the phone menu -->
+        <div class="theme-toggle-wrap">
+          <button type="button" class="theme-toggle" role="switch" aria-checked="false" aria-label="Dark mode">
+            <span class="d-lg-none">Dark mode</span>
+            <span class="theme-toggle-track" aria-hidden="true">
+              <span class="theme-toggle-thumb"><i class="bi bi-sun-fill"></i><i class="bi bi-moon-stars-fill"></i></span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main id="main" class="container-lg flex-grow-1 main-content case-study">
+
+    <!-- Title -->
+    <header class="text-center mb-4 grow-in">
+      <h4 class="cs-eyebrow">Mosaic | Media-Tracking Prototype</h4>
+      <h1 class="mx-auto" style="max-width: 900px;">One app for everything worth reading, watching, playing, and hearing.</h1>
+    </header>
+
+    <div class="row justify-content-center cs-section grow-in grow-in-delay">
+      <div class="col-12 col-lg-8">
+        <img src="../images/project1/mosaic-mockup.jpg" class="cs-image" alt="Three Mosaic screens on phones: the For You home page with recommended books, movies and music, the onboarding screen reading &ldquo;Track books, movies, TV shows, games and music,&rdquo; and a sci-fi shelf in grid view">
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <section class="row cs-section" aria-labelledby="overview">
+      <div class="col-12 col-lg-2"><h4 id="overview">Project Overview</h4></div>
+      <div class="col-12 col-lg-10">
+        <p>Mosaic is a mobile app that unifies media tracking into a single platform. Built over a 10-week capstone with a four-person team, the project moved through competitive analysis, user interviews, and two rounds of usability testing, from a low-fidelity prototype to a high-fidelity design.</p>
+      </div>
+    </section>
+
+    <hr class="cs-divider cs-divider-tight">
+
+    <!-- Timeframe, Role & Tools -->
+    <div class="row cs-meta gy-4">
+      <div class="col-12 col-lg-4">
+        <p class="cs-emphasis mb-1"><em>Timeframe</em></p>
+        <p>10 weeks</p>
+      </div>
+      <div class="col-12 col-lg-4">
+        <p class="cs-emphasis mb-1"><em>My Role</em></p>
+        <ul class="list-unstyled">
+          <li>Research</li>
+          <li>Heuristic Analysis</li>
+          <li>Design</li>
+          <li>Synthesis</li>
+          <li>Prototyping</li>
+          <li>Usability Testing</li>
+        </ul>
+      </div>
+      <div class="col-12 col-lg-4">
+        <p class="cs-emphasis mb-1"><em>Tools</em></p>
+        <ul class="list-unstyled">
+          <li>Figma</li>
+          <li>FigJam</li>
+          <li>Zoom</li>
+          <li>Google Docs</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Case study tabs: the full write-up, or a TLDR of the problem, solution and outcome -->
+    <ul class="nav cs-tabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="full-tab" data-bs-toggle="tab" data-bs-target="#case-study-full" type="button" role="tab" aria-controls="case-study-full" aria-selected="true">Full Case Study</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tldr-tab" data-bs-toggle="tab" data-bs-target="#tldr" type="button" role="tab" aria-controls="tldr" aria-selected="false">TLDR</button>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="case-study-full" role="tabpanel" aria-labelledby="full-tab" tabindex="0">
+        <!-- The Challenge -->
+        <section class="row cs-section" aria-labelledby="challenge">
+          <div class="col-12 col-lg-2"><h4 id="challenge">The Challenge</h4></div>
+          <div class="col-12 col-lg-10">
+            <p class="cs-emphasis"><em>Tracking media means juggling apps, or tracking nothing. Mosaic brings it all into one place.</em></p>
+            <p>Entertainment media spans books, movies, TV, music, and games, but tracking it doesn't. Most people juggle separate apps for each format, or give up tracking altogether. Mosaic explores what a single, unified platform for documenting, organizing, and reflecting on media could look like.</p>
+          </div>
+        </section>
+
+        <!-- Goals -->
+        <section class="row cs-section" aria-labelledby="goals">
+          <div class="col-12 col-lg-2"><h4 id="goals">Goals</h4></div>
+          <div class="col-12 col-lg-10">
+            <p>Three goals shaped Mosaic's design: effortless tracking across media types, genuine support for reflection, and simple collection-building. Rather than separate tools for separate formats, Mosaic gives users one place to track, rate, and review everything they consume. We measured success through ease-of-use ratings, satisfaction scores, and task completion rates.</p>
+          </div>
+        </section>
+
+        <!-- Design Process -->
+        <section class="cs-section" aria-labelledby="process">
+          <h4 id="process" class="mb-4">My Design Process</h4>
+          <ol class="process-steps has-iterate reveal">
+            <li><span class="step"><i class="bi bi-people step-icon" aria-hidden="true"></i>Empathize</span></li>
+            <li><span class="step"><i class="bi bi-bullseye step-icon" aria-hidden="true"></i>Define</span></li>
+            <li><span class="step"><i class="bi bi-lightbulb step-icon" aria-hidden="true"></i>Ideate</span></li>
+            <li>
+              <span class="step-wrap">
+                <span class="step"><i class="bi bi-vector-pen step-icon" aria-hidden="true"></i>Prototype</span>
+                <span class="iterate-loop">Iterate <span class="iterate-arc" aria-hidden="true"></span></span>
+              </span>
+            </li>
+            <li>
+              <span class="step-wrap">
+                <span class="step"><i class="bi bi-clipboard-check step-icon" aria-hidden="true"></i>Test</span>
+                <span class="iterate-loop">Iterate <span class="iterate-arc" aria-hidden="true"></span></span>
+              </span>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Methods -->
+        <section class="cs-section" aria-labelledby="methods">
+          <h4 id="methods" class="mb-4">Methods</h4>
+          <ol class="process-steps reveal">
+            <li><span class="step">Competitive Analysis</span></li>
+            <li><span class="step">Literature Review</span></li>
+            <li><span class="step">User Interviews</span></li>
+            <li class="iterate-next">
+              <span class="step">Prototyping</span>
+              <span class="iterate-connector"><span class="iterate-arrows" aria-hidden="true">&#8644;</span>Iterate</span>
+            </li>
+            <li><span class="step">Usability Testing</span></li>
+          </ol>
+        </section>
+
+        <!-- Research -->
+        <section class="cs-section" aria-labelledby="research">
+          <h2 id="research">Research</h2>
+
+          <div class="row cs-section gy-4 align-items-center">
+            <div class="col-12 col-lg-6">
+              <h3>Feature Matrix</h3>
+              <p>My team built a feature matrix comparing Mosaic's planned functionality against three competitors: Letterboxd, Goodreads, and Metacritic. Each existing tool covered only one or two media types, and none supported visually driven, flexible collection-building. This gap directly shaped Mosaic's multi-format tracking and shelf features.</p>
+            </div>
+            <div class="col-12 col-lg-6">
+              <figure class="mb-0 reveal">
+                <a href="../images/project1/feature-matrix.jpg" target="_blank" rel="noopener noreferrer">
+                  <img src="../images/project1/feature-matrix.jpg" class="cs-image" alt="Feature matrix comparing Mosaic with Metacritic, Goodreads and Letterboxd across seven features: onboarding preference selection, procedural rating, lists and collections, multimedia tracking, social features, algorithm-based recommendations and importing collections. Mosaic has all seven; Metacritic has only multimedia tracking; Goodreads and Letterboxd lack flexible collections, and none of the three fully supports importing.">
+                  <span class="visually-hidden"> (opens the full-size image in a new tab)</span>
+                </a>
+                <figcaption class="small mt-2 text-center">Select the matrix to open it full size.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="row cs-section gy-4 align-items-center">
+            <div class="col-12 col-lg-6 order-lg-last">
+              <h3>Heuristic Analysis</h3>
+              <p>I conducted a heuristic evaluation of Letterboxd and Goodreads using Nielsen's 10 usability heuristics, logging every violation and rating its severity. Letterboxd's most frequent issues were inconsistent visual standards and unclear system feedback; Goodreads struggled most with user control, including a lack of undo options when navigating between screens. These findings helped us avoid repeating the same friction points in our own design.</p>
+            </div>
+            <div class="col-12 col-lg-6">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80" class="cs-image reveal" alt="Placeholder: heuristic evaluation severity ratings">
+            </div>
+          </div>
+
+          <!-- Literature Review -->
+          <h3>Literature Review</h3>
+          <p>We reviewed relevant literature to provide insights that informed the design.</p>
+          <div class="row g-4 mt-1">
+            <div class="col-12 col-lg-4">
+              <div class="card lit-card h-100">
+                <div class="card-body">
+                  <blockquote class="pull-quote">Virtual possessions are valued through long term reflection, personal organization, and selective expressions of identity.</blockquote>
+                  <p class="small mb-0">&ldquo;Virtual Possessions&rdquo; by William Odom, John Zimmerman, and Jodi Forlizzi (2010).</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4">
+              <div class="card lit-card h-100">
+                <div class="card-body">
+                  <blockquote class="pull-quote">Collaborative media tools can support connection, emotional expression, and discovery.</blockquote>
+                  <p class="small mb-0">&ldquo;Hitting Pause: How User Perceptions of Collaborative Playlists Evolved in the United States During the COVID-19 Pandemic&rdquo; by So Yeon Park, Emily Redmond, Jonathan Berger, and Blair Kaneshiro (2022).</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4">
+              <div class="card lit-card h-100">
+                <div class="card-body">
+                  <blockquote class="pull-quote">Personal data apps should make it easy to track your habits and turn that information into useful insights.</blockquote>
+                  <p class="small mb-0">&ldquo;A Stage-Based Model of Personal Informatics Systems&rdquo; by Ian Li, Anind Dey, and Jodi Forlizzi (2010).</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interviews -->
+        <section class="cs-section" aria-labelledby="interviews">
+          <h2 id="interviews">Interviews</h2>
+          <p>My team conducted semi-structured interviews with three participants to understand current media-tracking habits, pain points, and openness to a new solution.</p>
+
+          <div class="row mt-4 mb-4">
+            <div class="col-12 col-lg-2"><h4>Key Questions</h4></div>
+            <div class="col-12 col-lg-10">
+              <ul>
+                <li>How do people currently track (or not track) the media they consume?</li>
+                <li>What role do lists and organization play in their habits?</li>
+                <li>How important is reflection, and what stops people from doing it?</li>
+                <li>How do friends and social platforms influence discovery?</li>
+                <li>What would an ideal tracking solution look like?</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-lg-2"><h4>What We Found</h4></div>
+            <div class="col-12 col-lg-10">
+              <p>Interviews revealed that most people default to passive tracking, like leaving a finished book on a shelf, rather than actively logging anything. All three participants said they wanted to write reflections but rarely followed through, citing effort and low motivation as the main obstacles. Friends and social platforms, especially Instagram, played a larger role in discovery than aggregated reviews. Participants were also confident, experienced list-makers, just not for media specifically.</p>
+              <div class="cs-callout">
+                <p class="mb-0"><strong>Research &rarr; Design:</strong> These findings shaped three design principles: keep every interaction as low-effort as possible, build a lightweight social layer around trusted recommendations, and lean into shelves and lists as a familiar, low-friction entry point into the app.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Low-Fidelity Prototype -->
+        <section class="row justify-content-center cs-section gy-4" aria-labelledby="lofi">
+          <div class="col-12">
+            <h2 id="lofi">Low Fidelity Prototype</h2>
+            <p>Our first prototype focused on structure, navigation, and flow rather than visual design. It covered three core paths: onboarding, logging a diary entry, and adding an item to a shelf.</p>
+          </div>
+          <div class="col-12">
+            <!-- Onboarding 1 (the landing screen) and Onboarding 4-12 from the Mosaic Low-Fi
+                 Prototype Figma file (iPhone 17 frames, 402 x 874, exported at 2x) -->
+            <div class="row row-cols-2 row-cols-md-5 g-3 justify-content-center wireframe-grid">
+              <div class="col">
+                <img src="../images/project1/lofi-onboarding-01.png" class="wireframe reveal" alt="Low-fidelity onboarding, landing screen: the Mosaic name with options to create an account with email, Apple or Google" loading="lazy">
+              </div>
+              <div class="col">
+                <img src="../images/project1/lofi-onboarding-04.png" class="wireframe reveal" alt="Low-fidelity onboarding, Tell us about yourself: empty first and last name fields" loading="lazy">
+              </div>
+              <div class="col">
+                <img src="../images/project1/lofi-onboarding-05.png" class="wireframe reveal" alt="Low-fidelity onboarding, Tell us about yourself: first and last name filled in" loading="lazy">
+              </div>
+              <div class="col">
+                <img src="../images/project1/lofi-onboarding-06.png" class="wireframe reveal" alt="Low-fidelity onboarding, Which types of media are you interested in: Movies, Books, TV Shows, Music and Games, none selected" loading="lazy">
+              </div>
+              <div class="col">
+                <img src="../images/project1/lofi-onboarding-07.png" class="wireframe reveal" alt="Low-fidelity onboarding, Which types of media are you interested in: Movies, TV Shows and Music selected" loading="lazy">
+              </div>
+              <div class="col">
+                <img src="../images/project1/lofi-onboarding-08.png" class="wireframe reveal" alt="Low-fidelity onboarding, What are your favorite genres: genre chips for movies, TV shows and music, none selected" loading="lazy">
+              </div>
+              <div class="col">
+                <img src="../images/project1/lofi-onboarding-09.png" class="wireframe reveal" alt="Low-fidelity onboarding, What are your favorite genres: several genres selected" loading="lazy">
+              </div>
+              <div class="col">
+                <img src="../images/project1/lofi-onboarding-10.png" class="wireframe reveal" alt="Low-fidelity onboarding, Get started with tracking media: a grid of items to log or save for later" loading="lazy">
+              </div>
+              <div class="col">
+                <img src="../images/project1/lofi-onboarding-11.png" class="wireframe reveal" alt="Low-fidelity onboarding: a sheet for The Odyssey with In Progress, Finished and Save For Later options and an empty star rating" loading="lazy">
+              </div>
+              <div class="col">
+                <img src="../images/project1/lofi-onboarding-12.png" class="wireframe reveal" alt="Low-fidelity onboarding: The Odyssey marked Finished and rated four stars" loading="lazy">
+              </div>            </div>
+          </div>
+        </section>
+
+        <!-- Usability Testing Round 1 -->
+        <section class="cs-section" aria-labelledby="ut1">
+          <h2 id="ut1">Usability Testing Round 1</h2>
+
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2"><h4>Scenarios</h4></div>
+            <div class="col-12 col-lg-10">
+              <p>My team and I conducted moderated usability tests with 5 users. They were presented with 3 scenarios; go through onboarding, log a reflection for a recently watched movie, and explore a shelf&rsquo;s view and add a new item to it.</p>
+              <ul class="list-unstyled">
+                <li class="mb-3"><strong>Scenario 1:</strong> Imagine you have just downloaded Mosaic for the very first time. Please proceed through the onboarding process in the way that feels most natural to you.</li>
+                <li class="mb-3"><strong>Scenario 2:</strong> Imagine you recently watched the movie Project Hail Mary and have just opened the app to write a reflection on it. Use the prototype to log a new entry in the way that feels most natural to you.</li>
+                <li><strong>Scenario 3:</strong> Imagine you want to add Dune: Part One to your Sci-Fi list. Use the prototype in the way that feels most natural to you and add a new movie to your previously made list.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2"><h4>Metrics Tracked</h4></div>
+            <div class="col-12 col-lg-10">
+              <ul>
+                <li>Post-onboarding mental model accuracy</li>
+                <li>Task completion</li>
+                <li>Perceived task length</li>
+                <li>Open-ended feedback on confusion points</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2"><h4>Success Criteria</h4></div>
+            <div class="col-12 col-lg-10">
+              <p>Participants should leave onboarding with an accurate sense of Mosaic's purpose, locate the correct entry point for logging media without assistance, and rate the shelf-adding process as easy to understand.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-lg-2"><h4>Results</h4></div>
+            <div class="col-12 col-lg-10">
+              <p>Onboarding failed to establish a clear mental model. All participants struggled to explain Mosaic's purpose afterward. The &ldquo;+&rdquo; icon in the navigation menu was a major source of confusion, with most participants instinctively heading to the Diary page instead to log an entry. The search step for adding a new entry also caused repeated backtracking. Despite this, participants responded well to task pacing and rated the shelves page highly for clarity.</p>
+              <div class="cs-callout">
+                <p class="mb-0"><strong>What we changed:</strong> Based on Round 1 findings, we redesigned onboarding to include explanatory screens before sign-up, removed the &ldquo;+&rdquo; icon from the navigation menu in favor of a dedicated entry point on the Diary page, and improved the visibility of the shelf view toggle. The prototype was also fully visually designed for this round.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Before & After -->
+        <section class="cs-section" aria-labelledby="before-after">
+          <h2 id="before-after">Before and After</h2>
+
+          <h4 class="mb-4">Onboarding &amp; Entry Flow</h4>
+          <!-- Click-through phones: they advance together every 5 seconds; select a screen to
+               pause or play both, or use the arrows to step through by hand -->
+          <div class="row g-5 mb-5">
+            <div class="col-12 col-md-6">
+              <figure class="flow-viewer reveal" aria-label="Low-fidelity onboarding flow, 13 screens">
+                <div class="flow-phone">
+                  <div class="flow-screen" title="Select to pause or play the slideshows">
+                    <img src="../images/project1/flow-lofi/login.jpg" alt="Low-fidelity, Login: Login screen: a logo placeholder, the Mosaic name, a placeholder tagline, a Get Started button and a sign-in link" data-screen="Login" class="is-active">
+                    <img src="../images/project1/flow-lofi/onboarding-01.jpg" alt="Low-fidelity, Onboarding 1: Create an account with email, Apple or Google" data-screen="Onboarding 1" loading="lazy">
+                    <img src="../images/project1/flow-lofi/onboarding-02.jpg" alt="Low-fidelity, Onboarding 2: Sign up with email: empty email, username and password fields and a disabled Sign up button" data-screen="Onboarding 2" loading="lazy">
+                    <img src="../images/project1/flow-lofi/onboarding-03.jpg" alt="Low-fidelity, Onboarding 3: Sign up with email: completed fields, each marked valid, and an active Sign up button" data-screen="Onboarding 3" loading="lazy">
+                    <img src="../images/project1/flow-lofi/onboarding-04.jpg" alt="Low-fidelity, Onboarding 4: Tell us about yourself: empty first and last name fields" data-screen="Onboarding 4" loading="lazy">
+                    <img src="../images/project1/flow-lofi/onboarding-05.jpg" alt="Low-fidelity, Onboarding 5: Tell us about yourself: name filled in as Jane Smith" data-screen="Onboarding 5" loading="lazy">
+                    <img src="../images/project1/flow-lofi/onboarding-06.jpg" alt="Low-fidelity, Onboarding 6: Which types of media are you interested in: Movies, Books, TV Shows, Music and Games, none selected" data-screen="Onboarding 6" loading="lazy">
+                    <img src="../images/project1/flow-lofi/onboarding-07.jpg" alt="Low-fidelity, Onboarding 7: Which types of media are you interested in: Movies, TV Shows and Music selected" data-screen="Onboarding 7" loading="lazy">
+                    <img src="../images/project1/flow-lofi/onboarding-08.jpg" alt="Low-fidelity, Onboarding 8: What are your favorite genres: genre chips for movies, TV shows and music, none selected" data-screen="Onboarding 8" loading="lazy">
+                    <img src="../images/project1/flow-lofi/onboarding-09.jpg" alt="Low-fidelity, Onboarding 9: What are your favorite genres: several genres selected" data-screen="Onboarding 9" loading="lazy">
+                    <img src="../images/project1/flow-lofi/onboarding-10.jpg" alt="Low-fidelity, Onboarding 10: Get started with tracking media: a grid of placeholder items to log or save for later" data-screen="Onboarding 10" loading="lazy">
+                    <img src="../images/project1/flow-lofi/onboarding-11.jpg" alt="Low-fidelity, Onboarding 11: A sheet for The Odyssey with In Progress, Finished and Save For Later options and an empty star rating" data-screen="Onboarding 11" loading="lazy">
+                    <img src="../images/project1/flow-lofi/onboarding-12.jpg" alt="Low-fidelity, Onboarding 12: The Odyssey marked Finished and rated four stars" data-screen="Onboarding 12" loading="lazy">
+                  </div>
+                </div>
+                <div class="flow-progress" aria-hidden="true"><span></span></div>
+                <div class="flow-controls">
+                  <button type="button" class="flow-btn flow-prev" aria-label="Previous screen"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M10 3.5 5.5 8l4.5 4.5"/></svg></button>
+                  <p class="flow-status" aria-live="off"><span class="flow-count">1 of 13</span></p>
+                  <button type="button" class="flow-btn flow-next" aria-label="Next screen"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5"/></svg></button>
+                </div>
+                <figcaption class="small mt-2 text-center">Before: low-fidelity login and onboarding, from Login to Onboarding 12</figcaption>
+              </figure>
+            </div>
+            <div class="col-12 col-md-6">
+              <figure class="flow-viewer reveal" aria-label="High-fidelity onboarding flow, 16 screens">
+                <div class="flow-phone">
+                  <div class="flow-screen" title="Select to pause or play the slideshows">
+                    <img src="../images/project1/flow-hifi/info-1.jpg" alt="High-fidelity, Info Screen 1: Track books, movies, TV shows, games and music, over a soft pink, yellow and purple gradient" data-screen="Info Screen 1" class="is-active">
+                    <img src="../images/project1/flow-hifi/info-2.jpg" alt="High-fidelity, Info Screen 2: Add to your diary by logging, rating, and writing reflections about media you&rsquo;ve completed" data-screen="Info Screen 2" loading="lazy">
+                    <img src="../images/project1/flow-hifi/info-3.jpg" alt="High-fidelity, Info Screen 3: Create shelves to collect and organize your favorite media" data-screen="Info Screen 3" loading="lazy">
+                    <img src="../images/project1/flow-hifi/info-4.jpg" alt="High-fidelity, Info Screen 4: Share your activity with friends and explore recommendations" data-screen="Info Screen 4" loading="lazy">
+                    <img src="../images/project1/flow-hifi/login.jpg" alt="High-fidelity, Login: Login screen: the Mosaic logo and wordmark, &ldquo;Track, organize, and discover media&rdquo; and a purple Get Started button" data-screen="Login" loading="lazy">
+                    <img src="../images/project1/flow-hifi/onboarding-01.jpg" alt="High-fidelity, Onboarding 1: Create an account with email, Apple or Google, with the Mosaic logo above" data-screen="Onboarding 1" loading="lazy">
+                    <img src="../images/project1/flow-hifi/onboarding-02.jpg" alt="High-fidelity, Onboarding 2: Sign up with email: empty email, username and password fields and a faded Sign up button" data-screen="Onboarding 2" loading="lazy">
+                    <img src="../images/project1/flow-hifi/onboarding-03.jpg" alt="High-fidelity, Onboarding 3: Sign up with email: completed fields, each marked valid, and an active purple Sign up button" data-screen="Onboarding 3" loading="lazy">
+                    <img src="../images/project1/flow-hifi/onboarding-04.jpg" alt="High-fidelity, Onboarding 4: Tell us about yourself: empty first and last name fields" data-screen="Onboarding 4" loading="lazy">
+                    <img src="../images/project1/flow-hifi/onboarding-05.jpg" alt="High-fidelity, Onboarding 5: Tell us about yourself: name filled in as Jane Smith" data-screen="Onboarding 5" loading="lazy">
+                    <img src="../images/project1/flow-hifi/onboarding-06.jpg" alt="High-fidelity, Onboarding 6: Which types of media are you interested in: Movies, Books, TV Shows, Music and Games, none selected" data-screen="Onboarding 6" loading="lazy">
+                    <img src="../images/project1/flow-hifi/onboarding-07.jpg" alt="High-fidelity, Onboarding 7: Which types of media are you interested in: Movies, TV Shows and Music selected" data-screen="Onboarding 7" loading="lazy">
+                    <img src="../images/project1/flow-hifi/onboarding-08.jpg" alt="High-fidelity, Onboarding 8: What are your favorite genres: genre chips for movies, TV shows and music, none selected" data-screen="Onboarding 8" loading="lazy">
+                    <img src="../images/project1/flow-hifi/onboarding-09.jpg" alt="High-fidelity, Onboarding 9: What are your favorite genres: Drama, Thriller, Comedy, Pop and Hip-Hop selected" data-screen="Onboarding 9" loading="lazy">
+                    <img src="../images/project1/flow-hifi/onboarding-10.jpg" alt="High-fidelity, Onboarding 10: Get started with tracking media: a grid of real book, movie, music and game covers" data-screen="Onboarding 10" loading="lazy">
+                    <img src="../images/project1/flow-hifi/onboarding-15.jpg" alt="High-fidelity, Onboarding 15: Confirmation: Entry added to your diary, with a Got it button" data-screen="Onboarding 15" loading="lazy">
+                  </div>
+                </div>
+                <div class="flow-progress" aria-hidden="true"><span></span></div>
+                <div class="flow-controls">
+                  <button type="button" class="flow-btn flow-prev" aria-label="Previous screen"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M10 3.5 5.5 8l4.5 4.5"/></svg></button>
+                  <p class="flow-status" aria-live="off"><span class="flow-count">1 of 16</span></p>
+                  <button type="button" class="flow-btn flow-next" aria-label="Next screen"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5"/></svg></button>
+                </div>
+                <figcaption class="small mt-2 text-center">After: high-fidelity info screens, login and onboarding, from Info Screen 1 to Onboarding 15</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <h4>Shelf View Toggle</h4>
+          <div class="row g-4">
+            <div class="col-12 col-md-6">
+              <figure>
+                <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=800&q=80" class="cs-image reveal" alt="Placeholder: shelf view toggle before redesign">
+                <figcaption class="small mt-2">Before: shelf view toggle</figcaption>
+              </figure>
+            </div>
+            <div class="col-12 col-md-6">
+              <figure>
+                <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=800&q=80" class="cs-image reveal" alt="Placeholder: shelf view toggle after redesign">
+                <figcaption class="small mt-2">After: redesigned shelf view toggle</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- Usability Testing Round 2 -->
+        <section class="cs-section" aria-labelledby="ut2">
+          <h2 id="ut2">Usability Testing Round 2</h2>
+
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2"><h4>Scenarios</h4></div>
+            <div class="col-12 col-lg-10">
+              <p>Five new participants completed four tasks: (1) onboarding, (2) logging a reflection, (3) exploring shelf views and adding an item, and (4) creating a new shelf.</p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2"><h4>Metrics Tracked</h4></div>
+            <div class="col-12 col-lg-10">
+              <ul>
+                <li>Post-onboarding confidence (5-point Likert scale)</li>
+                <li>Task success type (direct, indirect, or assisted)</li>
+                <li>Task-specific confidence and demand ratings</li>
+                <li>System Usability Scale (SUS) score</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2"><h4>Success Criteria</h4></div>
+            <div class="col-12 col-lg-10">
+              <p>The participants should leave onboarding with high confidence in Mosaic's purpose, complete all four tasks without needing significant help, and report low perceived demand for regular use.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-lg-2"><h4>Results</h4></div>
+            <div class="col-12 col-lg-10">
+              <div class="cs-callout d-flex flex-wrap align-items-center gap-3 mb-3">
+                <span class="stat">94.5</span>
+                <span>Mean SUS score, rated <strong>&ldquo;A+&rdquo;</strong> across all five participants</span>
+              </div>
+              <p>All participants left onboarding with a strong understanding of Mosaic's purpose, a clear improvement over Round 1. The updated entry point for logging media reduced friction significantly, though some participants still looked for it in the wrong place first. The redesigned shelf view toggle fully resolved the earlier discoverability issue. The team recorded a mean SUS score of 94.5, rated &ldquo;A+&rdquo; across all five participants. The clearest remaining issue was the preference-selection step during onboarding, which several participants found unnecessary and mildly frustrating.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Prototype -->
+        <section class="cs-section" aria-labelledby="prototype">
+          <h2 id="prototype" class="mb-3">Prototype</h2>
+          <!-- Replace href with your Figma prototype link, and the placeholder below with an embed or walkthrough video. -->
+          <a href="#" class="btn btn-berry mb-4">View Figma Prototype <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i></a>
+          <div class="ratio ratio-16x9 prototype-embed reveal">
+            <div class="d-flex align-items-center justify-content-center text-center p-3">
+              <p class="mb-0"><i class="bi bi-play-circle fs-1 d-block mb-2" aria-hidden="true"></i>Prototype walkthrough video placeholder</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Closing -->
+        <section class="row cs-section" aria-labelledby="closing">
+          <div class="col-12 text-center"><h4 id="closing">Closing / Future Work</h4></div>
+          <div class="col-12">
+            <p>Mosaic validated a real need for unified, low-effort media tracking, and testing showed major usability gains between the low- and high-fidelity rounds. But the project also surfaced a challenge that design alone can't solve: even with an easy-to-use interface, users still lack intrinsic motivation to write reflections. Future work should explore how to lower the perceived cost of reflection, whether through more lightweight formats, prompts, or incentives, alongside continued refinement of onboarding and entry-point discoverability. There's also room to explore deeper integration with external platforms, a feature multiple participants requested directly.</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- TLDR: the problem, the solution and the outcome at a glance -->
+      <div class="tab-pane fade" id="tldr" role="tabpanel" aria-labelledby="tldr-tab" tabindex="0">
+        <!-- The Problem -->
+        <section class="row cs-section" aria-labelledby="tldr-problem">
+          <div class="col-12 col-lg-2"><h4 id="tldr-problem">The Problem</h4></div>
+          <div class="col-12 col-lg-10">
+            <p class="cs-emphasis"><em>Tracking media means juggling a separate app for each format, or tracking nothing at all.</em></p>
+            <p>Books, movies, TV, music and games each have their own tracker, and none of them support flexible, visual collections. In interviews, people said they mostly track passively, like leaving a finished book on a shelf. They wanted to write reflections but rarely did, because it felt like too much effort. They also trusted friends&rsquo; recommendations more than aggregated reviews.</p>
+          </div>
+        </section>
+
+        <!-- The Solution -->
+        <section class="row cs-section" aria-labelledby="tldr-solution">
+          <div class="col-12 col-lg-2"><h4 id="tldr-solution">The Solution</h4></div>
+          <div class="col-12 col-lg-10">
+            <p>Mosaic is one mobile app for tracking, rating and reflecting on every type of media. Three principles from the research shaped it:</p>
+            <ul>
+              <li><strong>Low effort everywhere.</strong> Logging an entry or a reflection takes as few steps as possible.</li>
+              <li><strong>Shelves and lists first.</strong> People already make lists, so collections are the easy way in.</li>
+              <li><strong>A light social layer.</strong> Discovery is built around recommendations from people you trust.</li>
+            </ul>
+            <p>After the first round of testing, onboarding was rebuilt to explain the app before sign-up, logging moved to a dedicated entry point on the Diary page, and the shelf view toggle was made easier to find.</p>
+          </div>
+        </section>
+
+        <!-- The Outcome -->
+        <section class="row cs-section" aria-labelledby="tldr-outcome">
+          <div class="col-12 col-lg-2"><h4 id="tldr-outcome">The Outcome</h4></div>
+          <div class="col-12 col-lg-10">
+            <div class="cs-callout d-flex flex-wrap align-items-center gap-3 mb-3">
+              <span class="stat">94.5</span>
+              <span>Mean SUS score in Round 2, rated <strong>&ldquo;A+&rdquo;</strong> across all five participants</span>
+            </div>
+            <p>In Round 1, every participant struggled to explain what Mosaic was for after onboarding. In Round 2, all of them understood it. The open question is motivation: even with an easy interface, people still skip writing reflections, so future work should make reflecting feel lighter.</p>
+          </div>
+        </section>
+
+        <div class="text-center cs-section">
+          <button type="button" class="btn btn-berry btn-lg" data-show-tab="#full-tab">Read the Full Case Study<svg class="btn-arrow ms-2" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8h11M9.5 4l4 4-4 4"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <a href="../projects.html" class="btn btn-outline-moss"><i class="bi bi-arrow-left me-1" aria-hidden="true"></i> Back to Projects</a>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container-lg">
+      <div class="footer-inner">
+        <p>Copyright &copy; Braeden Huff | 2026</p>
+        <a class="social-link" href="https://www.linkedin.com/in/braeden-huff" target="_blank" rel="noopener noreferrer" aria-label="Braeden Huff on LinkedIn (opens in a new tab)">
+          <i class="bi bi-linkedin" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/theme.js"></script>
+  <script>
+    // Grow images, wireframes and graphics in as they scroll into view
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      reveals.forEach((el) => observer.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add('is-visible'));
+    }
+  </script>
+  <script>
+    // Case study tabs: a #tldr link opens the TLDR, the address follows the open
+    // tab, and the TLDR's button switches back to the full case study
+    const tldrTab = document.getElementById('tldr-tab');
+    if (location.hash === '#tldr') bootstrap.Tab.getOrCreateInstance(tldrTab).show();
+    document.querySelectorAll('.cs-tabs [data-bs-toggle="tab"]').forEach((tab) => {
+      tab.addEventListener('shown.bs.tab', () => {
+        history.replaceState(null, '', tab === tldrTab ? '#tldr' : location.pathname + location.search);
+        window.dispatchEvent(new Event('resize'));  // re-measure the before/after slider labels
+      });
+    });
+    document.querySelectorAll('[data-show-tab]').forEach((button) => {
+      button.addEventListener('click', () => {
+        bootstrap.Tab.getOrCreateInstance(document.querySelector(button.dataset.showTab)).show();
+        const smooth = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+        document.querySelector('.cs-tabs').scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+      });
+    });
+  </script>
+  <script>
+    // Click-through flows. The phones advance on a shared clock, one screen every 5 seconds,
+    // while they're on screen (the low-fidelity phone joins at the high-fidelity Login
+    // screen; see below), with a progress bar under each phone counting down to its next
+    // screen. Hovering a phone or focusing its controls holds them (the bars freeze);
+    // selecting either screen pauses or plays both (they start paused for visitors who
+    // prefer reduced motion). Use the arrows (or the left and right arrow keys) to step
+    // through by hand; the next two screens load ahead of time. Screens cross-fade.
+    (() => {
+      const viewers = [...document.querySelectorAll('.flow-viewer')];
+      if (!viewers.length) return;
+      const DELAY = 5000;
+      const FADE = 600;   // matches the flowIn animation in styles.css
+
+      const flows = viewers.map((viewer) => {
+        const screens = [...viewer.querySelectorAll('.flow-screen img')];
+        const count = viewer.querySelector('.flow-count');
+        const flow = { viewer, current: 0, length: screens.length, bar: viewer.querySelector('.flow-progress span') };
+        flow.show = (index, announce) => {
+          const previous = screens[flow.current];
+          flow.current = (index + screens.length) % screens.length;
+          const next = screens[flow.current];
+          if (next !== previous) {
+            // keep the old screen showing underneath while the new one fades in over it
+            screens.forEach((img) => img.classList.remove('is-prev'));
+            previous.classList.remove('is-active');
+            previous.classList.add('is-prev');
+            clearTimeout(flow.fadeTimer);
+            flow.fadeTimer = setTimeout(() => previous.classList.remove('is-prev'), FADE);
+          }
+          next.classList.add('is-active');
+          [1, 2].forEach((ahead) => { screens[(flow.current + ahead) % screens.length].loading = 'eager'; });
+          count.parentElement.setAttribute('aria-live', announce ? 'polite' : 'off');
+          count.textContent = `${flow.current + 1} of ${screens.length}`;
+        };
+        return flow;
+      });
+
+      let paused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let onScreen = false;
+      let elapsed = 0;       // time the current screens have been showing, while running
+      let last = null;       // previous animation-frame time
+      let frame = null;
+      const held = () => flows.some((f) => f.hovered || f.focused);
+      const running = () => !paused && !held() && onScreen && !document.hidden;
+      // The high-fidelity flow leads. The low-fidelity flow starts on Login, which is the
+      // high-fidelity flow's 5th screen, so it follows 4 screens behind: it waits on Login
+      // through Info Screens 1-4, then the two step through matching screens together, and
+      // the two flows' final screens (Onboarding 15 and Onboarding 12) show together.
+      const [lofi, hifi] = flows;
+      const OFFSET = 4;
+      const followerIndex = (leadIndex) => (leadIndex === hifi.length - 1
+        ? lofi.length - 1
+        : Math.min(Math.max(leadIndex - OFFSET, 0), lofi.length - 1));
+      const advance = () => {
+        hifi.show(hifi.current + 1, false);
+        const target = followerIndex(hifi.current);
+        if (target !== lofi.current) lofi.show(target, false);
+      };
+      const drawBars = () => {
+        const progress = Math.min(elapsed / DELAY, 1);
+        hifi.bar.style.transform = `scaleX(${progress})`;
+        // the low-fidelity bar only fills when its screen is about to change
+        const willMove = followerIndex((hifi.current + 1) % hifi.length) !== lofi.current;
+        lofi.bar.style.transform = `scaleX(${willMove ? progress : 0})`;
+      };
+      const loop = (now) => {
+        if (last !== null) elapsed += now - last;
+        last = now;
+        if (elapsed >= DELAY) {
+          elapsed = 0;
+          advance();
+        }
+        drawBars();
+        frame = requestAnimationFrame(loop);
+      };
+      // start or stop the clock only when the running state changes; holding or pausing
+      // freezes the bars where they are, and they carry on from there
+      const sync = () => {
+        if (running()) {
+          if (frame === null) { last = null; frame = requestAnimationFrame(loop); }
+        } else if (frame !== null) {
+          cancelAnimationFrame(frame);
+          frame = null;
+        }
+      };
+      // after a manual step, give the new screen a full 5 seconds
+      const restart = () => { elapsed = 0; last = null; drawBars(); sync(); };
+      const setPaused = (value) => {
+        paused = value;
+        sync();
+      };
+
+      flows.forEach((flow) => {
+        const step = (by) => { flow.show(flow.current + by, true); restart(); };
+        flow.viewer.querySelector('.flow-screen').addEventListener('click', () => setPaused(!paused));
+        flow.viewer.querySelector('.flow-next').addEventListener('click', () => step(1));
+        flow.viewer.querySelector('.flow-prev').addEventListener('click', () => step(-1));
+        flow.viewer.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowRight') { step(1); e.preventDefault(); }
+          if (e.key === 'ArrowLeft') { step(-1); e.preventDefault(); }
+        });
+        // a mouse over the phone, or keyboard focus on its controls, holds both phones
+        flow.viewer.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') { flow.hovered = true; sync(); } });
+        flow.viewer.addEventListener('pointerleave', () => { flow.hovered = false; sync(); });
+        flow.viewer.addEventListener('focusin', (e) => { flow.focused = e.target.matches(':focus-visible'); sync(); });
+        flow.viewer.addEventListener('focusout', () => { flow.focused = false; sync(); });
+        flow.show(0, false);
+      });
+
+      document.addEventListener('visibilitychange', sync);
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver((entries) => {
+          onScreen = entries.some((entry) => entry.isIntersecting);
+          sync();
+        }, { threshold: 0.15 }).observe(viewers[0].closest('.row'));
+      } else {
+        onScreen = true;
+      }
+      setPaused(paused);
+      drawBars();
+    })();
+  </script>
+</body>
+</html>

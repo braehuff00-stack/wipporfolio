@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(){var t='light',u=new URL(location.href),q=u.searchParams.get('theme');try{if(q==='dark'||q==='light')localStorage.setItem('theme',q);if(localStorage.getItem('theme')==='dark')t='dark'}catch(e){if(q==='dark')t='dark'}if(u.searchParams.has('theme')){u.searchParams.delete('theme');history.replaceState(null,'',u)}document.documentElement.setAttribute('data-bs-theme',t)})();</script>
+  <title>Field Museum IA Redesign Case Study | Braeden Huff</title>
+  <meta name="description" content="Field Museum mobile navigation redesign: an information architecture case study by Braeden Huff.">
+  <!-- Favicons (from the logo site): favicon.ico holds the 16px and 32px browser icons;
+       48px is the size Google Search shows; 180px is the iPhone/iPad home-screen icon -->
+  <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="48x48" href="../images/logo/favicons/48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/logo/favicons/180.png">
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Bootstrap 5 & Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Google Fonts: Bricolage Grotesque (400, 700) & Figtree (400, 700, italic 400, 700) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700&family=Figtree:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles -->
+  <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <a class="visually-hidden-focusable" href="#main">Skip to main content</a>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top site-nav" aria-label="Main navigation">
+    <div class="container-lg">
+      <a class="navbar-brand" href="../index.html" aria-label="Braeden Huff">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text"><span class="brand-name">Braeden Huff</span><span class="brand-tagline">UX Design &amp; Research</span></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../aboutme.html">About Me</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="true" href="../projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+        </ul>
+        <!-- Dark mode switch: right end of the navbar on lg, below the links in the phone menu -->
+        <div class="theme-toggle-wrap">
+          <button type="button" class="theme-toggle" role="switch" aria-checked="false" aria-label="Dark mode">
+            <span class="d-lg-none">Dark mode</span>
+            <span class="theme-toggle-track" aria-hidden="true">
+              <span class="theme-toggle-thumb"><i class="bi bi-sun-fill"></i><i class="bi bi-moon-stars-fill"></i></span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main id="main" class="container-lg flex-grow-1 main-content case-study">
+
+    <!-- Title -->
+    <header class="text-center mb-4 grow-in">
+      <h4 class="cs-eyebrow">Field Museum | Information Architecture Redesign</h4>
+      <h1 class="mx-auto" style="max-width: 900px;">Reorganizing the Field Museum&rsquo;s mobile menu around how visitors actually look for things.</h1>
+    </header>
+
+    <div class="row justify-content-center cs-section grow-in grow-in-delay">
+      <div class="col-12 col-lg-8">
+        <figure class="mb-0">
+          <img src="../images/project3/hero-final-wireframes.jpg" class="cs-image" alt="Four mobile wireframes from the redesign: the home page, the new card-based menu, the expanded Visiting menu with Exhibitions highlighted, and the Exhibitions page">
+          <figcaption class="small mt-2 text-center">Final wireframes for the redesigned mobile navigation (wireframes by Arjun Muthumani).</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <section class="row cs-section" aria-labelledby="overview">
+      <div class="col-12 col-lg-2"><h4 id="overview">Project Overview</h4></div>
+      <div class="col-12 col-lg-10">
+        <p>As a three-person group project for HCI 457 (Information Architecture), we evaluated and redesigned the navigation of the Field Museum&rsquo;s mobile website. The museum draws over a million visitors a year, and its site is where they buy tickets, discover exhibits and learn about the museum&rsquo;s science. The top of the menu worked, but deeper levels were disorganized, inconsistently labeled and full of redundant links.</p>
+        <p>Over two rounds of card sorting and three rounds of tree testing, we rebuilt the menu from six mixed categories into five topic-based ones. Success finding research resources rose from 30% to 60% between tree test rounds, and finding exhibit information rose from 70% to 90%. We finished with a new sitemap and wireframes for the two tasks the site handled worst.</p>
+      </div>
+    </section>
+
+    <hr class="cs-divider cs-divider-tight">
+
+    <!-- Timeframe, Role & Tools -->
+    <div class="row cs-meta gy-4">
+      <div class="col-12 col-lg-4">
+        <p class="cs-emphasis mb-1"><em>Timeframe</em></p>
+        <p>6 weeks</p>
+      </div>
+      <div class="col-12 col-lg-4">
+        <p class="cs-emphasis mb-1"><em>My Role</em></p>
+        <ul class="list-unstyled">
+          <li>UX researcher on a team of 3</li>
+          <li>Led the card sort pilot</li>
+          <li>Led all three tree tests</li>
+          <li>Analyzed test results</li>
+        </ul>
+      </div>
+      <div class="col-12 col-lg-4">
+        <p class="cs-emphasis mb-1"><em>Tools</em></p>
+        <ul class="list-unstyled">
+          <li>UXtweak</li>
+          <li>Spreadsheets</li>
+          <li>Figma</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Case study tabs: the full write-up, or a TLDR of the problem, solution and outcome -->
+    <ul class="nav cs-tabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="full-tab" data-bs-toggle="tab" data-bs-target="#case-study-full" type="button" role="tab" aria-controls="case-study-full" aria-selected="true">Full Case Study</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tldr-tab" data-bs-toggle="tab" data-bs-target="#tldr" type="button" role="tab" aria-controls="tldr" aria-selected="false">TLDR</button>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="case-study-full" role="tabpanel" aria-labelledby="full-tab" tabindex="0">
+        <!-- The Challenge -->
+        <section class="row cs-section" aria-labelledby="challenge">
+          <div class="col-12 col-lg-2"><h4 id="challenge">The Challenge</h4></div>
+          <div class="col-12 col-lg-10">
+            <p class="cs-emphasis"><em>Visitors couldn&rsquo;t predict where things lived once they went past the first level of the menu.</em></p>
+            <p>The hamburger menu mixed task-based labels (&ldquo;Buy Tickets,&rdquo; &ldquo;Become a Member&rdquo;) with topic-based ones (&ldquo;Visit,&rdquo; &ldquo;Our Science&rdquo;), so the same thing often appeared in two places. Labels like &ldquo;Learn&rdquo; and &ldquo;Our Science&rdquo; were vague, some submenus ran five levels deep, and many links led off to external sites.</p>
+          </div>
+        </section>
+
+        <!-- Goals -->
+        <section class="row cs-section" aria-labelledby="goals">
+          <div class="col-12 col-lg-2"><h4 id="goals">Goals</h4></div>
+          <div class="col-12 col-lg-10">
+            <p>Simplify the mobile navigation so it follows information architecture principles and matches visitors&rsquo; mental models. We focused on the key tasks people come to the site for:</p>
+            <ul>
+              <li>Finding information about current exhibitions</li>
+              <li>Finding ticket and parking information, and buying tickets in advance</li>
+              <li>Finding information about museum events</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Design Process -->
+        <section class="cs-section" aria-labelledby="process">
+          <h4 id="process" class="mb-4">My Design Process</h4>
+          <ol class="process-steps has-iterate reveal">
+            <li><span class="step"><i class="bi bi-compass step-icon" aria-hidden="true"></i>Explore</span></li>
+            <li><span class="step"><i class="bi bi-search step-icon" aria-hidden="true"></i>Research</span></li>
+            <li><span class="step"><i class="bi bi-lightbulb step-icon" aria-hidden="true"></i>Ideate</span></li>
+            <li>
+              <span class="step-wrap">
+                <span class="step"><i class="bi bi-clipboard-check step-icon" aria-hidden="true"></i>Test</span>
+                <span class="iterate-loop">Iterate <span class="iterate-arc" aria-hidden="true"></span></span>
+              </span>
+            </li>
+            <li>
+              <span class="step-wrap">
+                <span class="step"><i class="bi bi-vector-pen step-icon" aria-hidden="true"></i>Implement</span>
+                <span class="iterate-loop">Iterate <span class="iterate-arc" aria-hidden="true"></span></span>
+              </span>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Methods -->
+        <section class="cs-section" aria-labelledby="methods">
+          <h4 id="methods" class="mb-4">Methods</h4>
+          <ol class="process-steps reveal">
+            <li><span class="step">Content Inventory</span></li>
+            <li><span class="step">Heuristic Analysis</span></li>
+            <li><span class="step">Card Sorting</span></li>
+            <li class="iterate-next">
+              <span class="step">Tree Testing</span>
+              <span class="iterate-connector"><span class="iterate-arrows" aria-hidden="true">&#8644;</span>Iterate</span>
+            </li>
+            <li><span class="step">Sitemap &amp; Wireframes</span></li>
+          </ol>
+        </section>
+
+        <!-- Research -->
+        <section class="cs-section" aria-labelledby="research">
+          <h2 id="research">Research</h2>
+
+          <div class="row cs-section gy-4 align-items-center">
+            <div class="col-12 col-lg-6">
+              <h3>Content Inventory</h3>
+              <p>We started by cataloging every link in the mobile menu to see the scope of what needed to change. The menu split into six areas: Visit, Learn, Events, Our Science, Get Involved and About. Three problems stood out: mixed action- and topic-based labels, vague names, and redundant content, with nearly every page repeating links or adding its own navigation bar.</p>
+              <p>Because the site was so deep, we scoped the redesign to level 3 of the navigation (level 4 where needed) and left out external pages and duplicates.</p>
+            </div>
+            <div class="col-12 col-lg-6">
+              <figure class="mb-0">
+                <img src="../images/project3/content-inventory.jpg" class="cs-image reveal" alt="Excerpt of the content inventory spreadsheet listing each menu item with its URL, type and notes, color-coded by menu section">
+                <figcaption class="small mt-2">Excerpt of the content inventory, color-coded by menu section.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="row cs-section gy-4 align-items-center">
+            <div class="col-12 col-lg-6 order-lg-last">
+              <h3>Heuristic Analysis</h3>
+              <p>Each of us scored two key tasks against six heuristics, then we averaged our ratings. Buying a ticket scored lowest. The site didn&rsquo;t explain the different ticket types or show which step of checkout you were on, and the only way back was the browser&rsquo;s back button, which erased your selections. Exhibition info was clearer, but cards looked too much like buttons and nothing showed which exhibits cost extra.</p>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="table-responsive reveal">
+                <table class="table mb-0">
+                  <caption class="small">Average heuristic scores across three evaluators</caption>
+                  <thead>
+                    <tr><th scope="col">Task</th><th scope="col">Average score</th><th scope="col">Biggest issue</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Purchasing a ticket</td><td>3.0</td><td>Didn&rsquo;t support users&rsquo; mental model; unclear ticket types and no sense of progress</td></tr>
+                    <tr><td>Finding current exhibitions</td><td>3.7</td><td>Cards hard to tell from buttons; no cue for exhibits that cost extra</td></tr>
+                    <tr><td><strong>Both tasks</strong></td><td><strong>3.35</strong></td><td>Strong on visual consistency and recognition</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personas -->
+          <h3>Personas</h3>
+          <p>The museum serves families, teens and adults, so we wrote two personas that cover distinct ends of that audience and used them to write our test tasks (personas by Brendon Keo).</p>
+          <div class="row g-4 mt-1">
+            <div class="col-12 col-lg-4">
+              <div class="card lit-card h-100">
+                <div class="card-body">
+                  <p class="cs-emphasis mb-2"><em>Lidia, 37, parent</em></p>
+                  <p class="mb-0">A social worker from Oak Park with three kids. She has a few hours to spare and wants to see every current exhibit her family might enjoy, even if some cost extra.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4">
+              <div class="card lit-card h-100">
+                <div class="card-body">
+                  <p class="cs-emphasis mb-2"><em>Kyle, 19, student</em></p>
+                  <p class="mb-0">An anthropology student at UIC writing a paper on ancient Egyptian culture. He cares less about the exhibit and more about the research the museum has published.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4">
+              <div class="card lit-card h-100">
+                <div class="card-body">
+                  <p class="cs-emphasis mb-2"><em>Who we tested with</em></p>
+                  <p class="mb-0">Chicago locals aged 18 to 30 who don&rsquo;t know the exhibits well, tourists planning a visit, and college students interested in history.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card Sorting -->
+        <section class="cs-section" aria-labelledby="card-sort">
+          <h2 id="card-sort">Card Sorting</h2>
+          <p>We ran closed card sorts to see whether visitors understood our simplified categories and renamed cards. I ran the pilot; Brendon ran the two full rounds.</p>
+
+          <div class="row mt-4 mb-4">
+            <div class="col-12 col-lg-2"><h4>Rounds</h4></div>
+            <div class="col-12 col-lg-10">
+              <ul>
+                <li><strong>Pilot:</strong> 8 categories, 34 cards, based on the site&rsquo;s existing menu.</li>
+                <li><strong>Round 1:</strong> 11 participants, 7 categories, 35 cards.</li>
+                <li><strong>Round 2:</strong> 12 participants, 7 categories, 35 cards.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-lg-2"><h4>What We Found</h4></div>
+            <div class="col-12 col-lg-10">
+              <ul>
+                <li><strong>Pilot:</strong> Task-based categories made sorting harder. The participant wanted &ldquo;Buy Tickets&rdquo; inside Visit, and couldn&rsquo;t tell what &ldquo;Our Science&rdquo; or &ldquo;Learn&rdquo; meant. We switched to topic-based labels, kept Tickets and Membership as utility links too, and added an &ldquo;I don&rsquo;t know&rdquo; option.</li>
+                <li><strong>Round 1:</strong> Our new name &ldquo;Behind the Scenes&rdquo; got confused with &ldquo;About Us,&rdquo; and &ldquo;Special Events&rdquo; didn&rsquo;t match expectations. We changed back to &ldquo;Our Science,&rdquo; renamed events to &ldquo;Programs &amp; Events,&rdquo; and made cards more descriptive (&ldquo;Programs for Kids and Families&rdquo;).</li>
+                <li><strong>Round 2:</strong> Confusion dropped for Our Science, Programs &amp; Events and nearly every learning card. Seven cards stayed ambiguous, including Press Room, Library, Accessibility and Exhibitions.</li>
+              </ul>
+              <div class="cs-callout">
+                <p class="mb-0"><strong>Research &rarr; Design:</strong> We placed the seven ambiguous cards where they fit best, then checked those choices directly in tree testing instead of guessing.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tree Testing Round 1 -->
+        <section class="cs-section" aria-labelledby="ut1">
+          <h2 id="ut1">Tree Testing: Pilot and Round 1</h2>
+
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2"><h4>Scenarios</h4></div>
+            <div class="col-12 col-lg-10">
+              <p>I ran three tree tests in total with 23 participants: a pilot with 3 and two rounds of 10. Each task was a short scenario built from our personas.</p>
+              <ul class="list-unstyled">
+                <li class="mb-3"><strong>Task 1:</strong> A friend recommended a new exhibit. Where would you go to find information about exhibits?</li>
+                <li class="mb-3"><strong>Task 2:</strong> You&rsquo;re worried about parking during your visit. Where would you find parking information?</li>
+                <li><strong>Task 3:</strong> You&rsquo;re a college student researching ancient Egyptian culture. Where would you go to find the museum&rsquo;s resources?</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2"><h4>Metrics Tracked</h4></div>
+            <div class="col-12 col-lg-10">
+              <ul>
+                <li>Task success rate</li>
+                <li>Direct vs. indirect success (whether people backtracked first)</li>
+                <li>First category clicked and the paths people took</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2"><h4>Success Criteria</h4></div>
+            <div class="col-12 col-lg-10">
+              <p>Participants end on the correct menu item, ideally directly. A low rate, or a high rate reached only after backtracking, flagged a category to rename or move.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-lg-2"><h4>Results</h4></div>
+            <div class="col-12 col-lg-10">
+              <p>The pilot exposed problems with both the tree and the tasks. Splitting exhibitions into &ldquo;included&rdquo; and &ldquo;ticketed&rdquo; confused people, and parking had no clear home, so we made one Exhibitions card and a distinct Parking card.</p>
+              <p>In Round 1, parking hit 100% and exhibits reached 70%, but only 30% of participants found the ancient Egypt research. Many of them looked under &ldquo;Learning&rdquo; first instead of &ldquo;Our Science.&rdquo;</p>
+              <figure class="my-4">
+                <img src="../images/project3/tree-test-r1-results.jpg" class="cs-image reveal" alt="Round 1 tree test results chart showing direct and indirect success and failure for three tasks, with Task 3 mostly failures">
+                <figcaption class="small mt-2">Round 1 results (run as two versions, 1.0 and 1.2, after a participant limit split the round).</figcaption>
+              </figure>
+              <div class="cs-callout">
+                <p class="mb-0"><strong>What we changed:</strong> We moved Exhibitions up in Visit, renamed &ldquo;Plan Visit&rdquo; to &ldquo;Plan&rdquo; and &ldquo;Research &amp; Collections&rdquo; to &ldquo;Research,&rdquo; and added Research inside Learning as well. We also removed &ldquo;Get Involved&rdquo; and redistributed its cards. Parking was solved, so we replaced that task with one about resources for young learners.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Before / after slider -->
+        <div class="row justify-content-center cs-section">
+          <figure class="col-12 col-lg-8 mb-0 reveal">
+            <div class="ba-slider">
+              <img src="../images/project3/slider-final-menu.jpg" class="ba-img" alt="After: final wireframes of the home page, card-based menu and expanded Visit menu with Tickets highlighted in blue">
+              <img src="../images/project3/slider-draft-menu.jpg" class="ba-img ba-before" alt="Before: draft wireframes of the home page, a plain black-button menu with Get Involved, and the expanded Visit menu">
+              <span class="ba-label ba-label-before" aria-hidden="true">Draft</span>
+              <span class="ba-label ba-label-after" aria-hidden="true">Final</span>
+              <span class="ba-handle" aria-hidden="true"></span>
+              <input type="range" class="ba-range" min="0" max="100" value="50" aria-label="Draft and final menu comparison: slide to reveal more of the draft or final wireframes">
+            </div>
+            <figcaption class="small mt-2 text-center">The menu, from draft to final wireframe: drag to compare</figcaption>
+          </figure>
+        </div>
+
+        <!-- Tree Testing Round 2 -->
+        <section class="cs-section" aria-labelledby="ut2">
+          <h2 id="ut2">Tree Testing: Round 2</h2>
+
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2"><h4>Scenarios</h4></div>
+            <div class="col-12 col-lg-10">
+              <p>Ten participants completed the revised tree. We kept the exhibit task, reworded the research task to ask about &ldquo;how ancient Egyptians lived,&rdquo; and added a new task: a parent looking for learning resources for their 5-year-old.</p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2"><h4>Metrics Tracked</h4></div>
+            <div class="col-12 col-lg-10">
+              <ul>
+                <li>Task success rate, compared with Round 1</li>
+                <li>Direct vs. indirect success</li>
+                <li>Post-test comments on what was hard to find</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12 col-lg-2"><h4>Success Criteria</h4></div>
+            <div class="col-12 col-lg-10">
+              <p>Higher success on the tasks that struggled in Round 1, especially research, without hurting the tasks that already worked.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-lg-2"><h4>Results</h4></div>
+            <div class="col-12 col-lg-10">
+              <div class="cs-callout d-flex flex-wrap align-items-center gap-3 mb-3">
+                <span class="stat">30% &rarr; 60%</span>
+                <span>Success finding research resources, Round 1 to Round 2</span>
+              </div>
+              <div class="table-responsive mb-3">
+                <table class="table">
+                  <caption class="small">Tree test success rates by round</caption>
+                  <thead>
+                    <tr><th scope="col">Task</th><th scope="col">Pilot (3)</th><th scope="col">Round 1 (10)</th><th scope="col">Round 2 (10)</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Find information on a current exhibit</td><td>66.7%</td><td>70%</td><td>90%</td></tr>
+                    <tr><td>Find where to park</td><td>33.3%</td><td>100%</td><td>Retired</td></tr>
+                    <tr><td>Find detailed resources for research</td><td>33.3%</td><td>30%</td><td>60%</td></tr>
+                    <tr><td>Find resources for a specific age group</td><td>&mdash;</td><td>&mdash;</td><td>90%</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>All four direct successes on the research task went through Learning &rarr; Research, which confirmed that placing Research in both categories was right. Three of the four failures still chose a reasonable way to learn about ancient Egypt, such as Exhibitions, and comments showed the task wording was still unclear.</p>
+              <figure class="my-4">
+                <img src="../images/project3/tree-test-r2-results.jpg" class="cs-image reveal" alt="Round 2 tree test results chart: Task 1 and Task 2 at 90% success, Task 3 at 60% success">
+                <figcaption class="small mt-2">Round 2 results. The age-group task appears as Task 2 because the parking task was retired.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sitemap (prototype-style embed) -->
+        <section class="cs-section" aria-labelledby="sitemap">
+          <h2 id="sitemap" class="mb-3">The Final Sitemap</h2>
+          <p>After the second tree test, we sorted cards and categories by what both studies showed and used the names that tested best. Where the data stayed ambiguous, we used our best judgment. The final menu has five topic-based categories: Visiting, Learning, Programs &amp; Events, Research &amp; Science, and About the Field. We removed action-based labels, the &ldquo;Get Involved&rdquo; category and redundant content, and listed Research under both Learning and Research &amp; Science because participants expected it in both (sitemap by Brendon Keo).</p>
+          <div class="reveal">
+            <a href="../images/project3/final-sitemap.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open the full-size sitemap in a new tab">
+              <img src="../images/project3/final-sitemap.jpg" class="cs-image" alt="Field Museum mobile sitemap: Home branches into Visiting, Learning, Programs and Events, Research and Science, and About the Field, each with its subpages">
+            </a>
+          </div>
+          <p class="small mt-2 text-center">Select the sitemap to open it full size.</p>
+        </section>
+
+        <!-- Wireframes -->
+        <section class="row justify-content-center cs-section gy-4" aria-labelledby="lofi">
+          <div class="col-12">
+            <h2 id="lofi">Wireframes</h2>
+            <p>Arjun turned the sitemap into mobile wireframes for the two tasks that scored worst. Menu items became cards that turn blue when selected, so visitors get immediate feedback. The Exhibitions page highlights the featured exhibit first, then lists all current exhibitions with independent tag filters that can be combined.</p>
+          </div>
+          <div class="col-12">
+            <div class="row row-cols-2 row-cols-md-5 g-3 justify-content-center wireframe-grid">
+              <div class="col">
+                <img src="../images/project3/wf-final-home.jpg" class="wireframe reveal" alt="Home page wireframe with the menu button highlighted">
+              </div>
+              <div class="col">
+                <img src="../images/project3/wf-final-menu.jpg" class="wireframe reveal" alt="Menu wireframe with five category cards">
+              </div>
+              <div class="col">
+                <img src="../images/project3/wf-final-visit.jpg" class="wireframe reveal" alt="Expanded Visit menu wireframe with Tickets selected in blue">
+              </div>
+              <div class="col">
+                <img src="../images/project3/wf-final-visiting-exhibitions.jpg" class="wireframe reveal" alt="Expanded Visiting menu wireframe with Exhibitions selected in blue">
+              </div>
+              <div class="col">
+                <img src="../images/project3/wf-final-exhibitions.jpg" class="wireframe reveal" alt="Exhibitions page wireframe with a featured main exhibit card, filters, and a list of current exhibitions">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Before & After -->
+        <section class="cs-section" aria-labelledby="before-after">
+          <h2 id="before-after">Before and After</h2>
+          <p>On the live site, buying tickets meant moving through several disconnected pages and relying on the browser&rsquo;s back button, which often lost your choices. The redesign puts every ticket step on one scrollable page: ticket type, date, quantity, add-ons, then review and payment.</p>
+          <div class="row g-4 justify-content-center">
+            <div class="col-6 col-md-3">
+              <figure>
+                <img src="../images/project3/draft-tickets.jpg" class="cs-image reveal" alt="Draft wireframe of the single-page ticket flow with plain sections for ticket type, date, quantity, add-ons and review">
+                <figcaption class="small mt-2">Draft: the first single-page ticket flow.</figcaption>
+              </figure>
+            </div>
+            <div class="col-6 col-md-3">
+              <figure>
+                <img src="../images/project3/final-tickets.jpg" class="cs-image reveal" alt="Final wireframe of the ticket page with step sections for ticket type, a calendar, a quantity counter, priced add-ons, and review and payment">
+                <figcaption class="small mt-2">Final: clear step sections with a calendar, counters and priced add-ons.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- Closing -->
+        <section class="row cs-section" aria-labelledby="closing">
+          <div class="col-12 text-center"><h4 id="closing">Closing / Future Work</h4></div>
+          <div class="col-12">
+            <p>The biggest lesson was that labels carry the architecture. Most of our gains came from renaming and regrouping, not adding anything new, and every rename was checked with real participants before it stuck.</p>
+            <ul>
+              <li><strong>Mixed navigation confuses people.</strong> Combining task-based and topic-based labels left visitors unsure what a menu item contained.</li>
+              <li><strong>Depth goes unused.</strong> Navigation past level 4 was rarely used; that content might be better as a separate site.</li>
+              <li><strong>One screen beats many.</strong> People preferred information on a single screen over sub-sections spread across pages, which shaped the ticket and exhibition designs.</li>
+            </ul>
+            <p><strong>What I&rsquo;d do differently.</strong> Word the tree test prompts more clearly from the start, since the research task&rsquo;s wording muddied two rounds of results. And address the mixed navigation labels right after the content inventory instead of waiting for card sorting to surface them.</p>
+            <p><strong>Next steps.</strong> Give the Research &amp; Science category more focus, run first-click testing and test an interactive prototype, and recruit audiences beyond our two personas.</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- TLDR: the problem, the solution and the outcome at a glance -->
+      <div class="tab-pane fade" id="tldr" role="tabpanel" aria-labelledby="tldr-tab" tabindex="0">
+        <!-- The Problem -->
+        <section class="row cs-section" aria-labelledby="tldr-problem">
+          <div class="col-12 col-lg-2"><h4 id="tldr-problem">The Problem</h4></div>
+          <div class="col-12 col-lg-10">
+            <p class="cs-emphasis"><em>Visitors couldn&rsquo;t predict where things lived once they went past the first level of the menu.</em></p>
+            <p>The Field Museum&rsquo;s mobile menu mixed task-based labels (&ldquo;Buy Tickets&rdquo;) with topic-based ones (&ldquo;Visit&rdquo;), so the same thing often appeared in two places. Labels like &ldquo;Learn&rdquo; and &ldquo;Our Science&rdquo; were vague, and some submenus ran five levels deep.</p>
+          </div>
+        </section>
+
+        <!-- The Solution -->
+        <section class="row cs-section" aria-labelledby="tldr-solution">
+          <div class="col-12 col-lg-2"><h4 id="tldr-solution">The Solution</h4></div>
+          <div class="col-12 col-lg-10">
+            <p>Over two rounds of card sorting and three rounds of tree testing, our team of three rebuilt the menu from six mixed categories into five topic-based ones: Visiting, Learning, Programs &amp; Events, Research &amp; Science, and About the Field.</p>
+            <ul>
+              <li><strong>Every rename was tested</strong> with participants before it stuck.</li>
+              <li><strong>Research appears in two places</strong>, under Learning and Research &amp; Science, because participants expected it in both.</li>
+              <li><strong>Wireframes for the worst tasks</strong> turned menu items into cards with clear selection feedback, and put every ticket step on one scrollable page.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- The Outcome -->
+        <section class="row cs-section" aria-labelledby="tldr-outcome">
+          <div class="col-12 col-lg-2"><h4 id="tldr-outcome">The Outcome</h4></div>
+          <div class="col-12 col-lg-10">
+            <div class="cs-callout d-flex flex-wrap align-items-center gap-3 mb-3">
+              <span class="stat">30% &rarr; 60%</span>
+              <span>Success finding research resources, Round 1 to Round 2</span>
+            </div>
+            <p>Finding exhibit information also rose from 70% to 90%. Most of the gains came from renaming and regrouping, not adding anything new. Next steps are first-click testing, an interactive prototype and testing with audiences beyond our two personas.</p>
+          </div>
+        </section>
+
+        <div class="text-center cs-section">
+          <button type="button" class="btn btn-berry btn-lg" data-show-tab="#full-tab">Read the Full Case Study<svg class="btn-arrow ms-2" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8h11M9.5 4l4 4-4 4"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <a href="../projects.html" class="btn btn-outline-moss"><i class="bi bi-arrow-left me-1" aria-hidden="true"></i> Back to Projects</a>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container-lg">
+      <div class="footer-inner">
+        <p>Copyright &copy; Braeden Huff | 2026</p>
+        <a class="social-link" href="https://www.linkedin.com/in/braeden-huff" target="_blank" rel="noopener noreferrer" aria-label="Braeden Huff on LinkedIn (opens in a new tab)">
+          <i class="bi bi-linkedin" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/theme.js"></script>
+  <script>
+    // Before / after slider: the divider sits at the range input's value, and a
+    // label hides once the divider crosses it (it reappears when it moves back)
+    document.querySelectorAll('.ba-slider').forEach((slider) => {
+      const range = slider.querySelector('.ba-range');
+      const beforeLabel = slider.querySelector('.ba-label-before');
+      const afterLabel = slider.querySelector('.ba-label-after');
+      const update = (percent = Number(range.value)) => {
+        slider.style.setProperty('--pos', `${percent}%`);
+        const box = slider.getBoundingClientRect();
+        const divider = box.left + (box.width * percent) / 100;
+        beforeLabel.classList.toggle('is-hidden', divider < beforeLabel.getBoundingClientRect().right);
+        afterLabel.classList.toggle('is-hidden', divider > afterLabel.getBoundingClientRect().left);
+      };
+
+      // Touch screens only let a range input be dragged by its thumb, and this one's
+      // thumb is hidden, so a finger drag did nothing (only taps moved it). Follow
+      // the pointer directly instead: press anywhere on the image and drag sideways.
+      const follow = (e) => {
+        const box = slider.getBoundingClientRect();
+        const percent = Math.min(Math.max((e.clientX - box.left) / box.width, 0), 1) * 100;
+        range.value = percent;  // keeps keyboard and screen-reader position in step
+        update(percent);
+      };
+      let dragging = false;
+      range.addEventListener('pointerdown', (e) => {
+        dragging = true;
+        try { range.setPointerCapture(e.pointerId); } catch (err) { /* keep dragging without capture */ }
+        follow(e);
+      });
+      range.addEventListener('pointermove', (e) => { if (dragging) follow(e); });
+      ['pointerup', 'pointercancel'].forEach((type) => range.addEventListener(type, () => { dragging = false; }));
+
+      range.addEventListener('input', () => update());
+      window.addEventListener('resize', () => update());
+      update();
+    });
+  </script>
+  <script>
+    // Grow images, wireframes and graphics in as they scroll into view
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      reveals.forEach((el) => observer.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add('is-visible'));
+    }
+  </script>
+  <script>
+    // Case study tabs: a #tldr link opens the TLDR, the address follows the open
+    // tab, and the TLDR's button switches back to the full case study
+    const tldrTab = document.getElementById('tldr-tab');
+    if (location.hash === '#tldr') bootstrap.Tab.getOrCreateInstance(tldrTab).show();
+    document.querySelectorAll('.cs-tabs [data-bs-toggle="tab"]').forEach((tab) => {
+      tab.addEventListener('shown.bs.tab', () => {
+        history.replaceState(null, '', tab === tldrTab ? '#tldr' : location.pathname + location.search);
+        window.dispatchEvent(new Event('resize'));  // re-measure the before/after slider labels
+      });
+    });
+    document.querySelectorAll('[data-show-tab]').forEach((button) => {
+      button.addEventListener('click', () => {
+        bootstrap.Tab.getOrCreateInstance(document.querySelector(button.dataset.showTab)).show();
+        const smooth = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+        document.querySelector('.cs-tabs').scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+      });
+    });
+  </script>
+</body>
+</html>
