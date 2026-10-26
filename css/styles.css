@@ -1,0 +1,1355 @@
+/* ==========================================================
+   Braeden Huff — Portfolio Template
+   Custom styles layered on top of Bootstrap 5.3
+   ========================================================== */
+
+/* ---------- Color palette & type scale ---------- */
+:root {
+  --deep-forest: #1F3A2E;   /* H1 / Display */
+  --moss: #4F6E40;          /* H2 / Subheads */
+  --charcoal-bark: #2B2B26; /* Body text */
+  --berry: #8A3F64;         /* Accent / links / pull quotes */
+  --berry-dark: #6F3150;    /* Button hover */
+  --sage-mist: #DDE6D5;     /* Cards / section backgrounds */
+  --warm-linen: #F6F3EA;    /* Page background */
+
+  /* Minor Third (1.2) scale, 18px base (1rem = 18px) */
+  --fs-small: 0.833rem;
+  --fs-body: 1rem;
+  --fs-h4: 1.44rem;
+  --fs-h3: 1.728rem;
+  --fs-h2: 2.074rem;
+  --fs-h1: 2.488rem;
+
+  --font-heading: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, sans-serif;
+
+  --btn-bg: #8A3F64;                     /* Berry button */
+  --btn-bg-hover: #6F3150;
+  --shadow: rgba(31, 58, 46, 0.18);
+
+  --bs-body-bg: var(--warm-linen);
+  --bs-body-color: var(--charcoal-bark);
+  --bs-link-color-rgb: 138, 63, 100;
+  --bs-link-hover-color-rgb: 111, 49, 80;
+  color-scheme: light;
+}
+
+/* ---------- Dark mode ----------
+   Set on <html data-bs-theme="dark"> by the navbar switch (or the visitor's
+   system setting). Same palette roles, re-tuned for a dark background, each
+   with its own color name (the variable names stay those of the light roles):
+   Forest Night page, Birch text, Fern and Wild Rose accents. */
+[data-bs-theme="dark"] {
+  --deep-forest: #DCE8D2;   /* Pale Lichen: H1 / Display */
+  --moss: #9CC08A;          /* Fern: H2 / Subheads */
+  --charcoal-bark: #E4E1D8; /* Birch: Body text */
+  --berry: #E39BBE;         /* Wild Rose: Accent / links / pull quotes */
+  --berry-dark: #F2BCD6;    /* Blossom: Link hover */
+  --sage-mist: #24302A;     /* Shadow Moss: Cards / section backgrounds */
+  --warm-linen: #131813;    /* Forest Night: Page background */
+
+  --btn-bg: #9A4872;
+  --btn-bg-hover: #B25985;
+  --shadow: rgba(0, 0, 0, 0.45);
+
+  --bs-body-bg: var(--warm-linen);
+  --bs-body-color: var(--charcoal-bark);
+  --bs-link-color-rgb: 227, 155, 190;
+  --bs-link-hover-color-rgb: 242, 188, 214;
+  color-scheme: dark;
+}
+
+/* ---------- Base typography ---------- */
+html { font-size: 18px; }
+
+body {
+  background-color: var(--warm-linen);
+  color: var(--charcoal-bark);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+small, .small { font-size: var(--fs-small); }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 { font-size: var(--fs-h1); color: var(--deep-forest); }
+h2 { font-size: var(--fs-h2); color: var(--moss); }
+h3 { font-size: var(--fs-h3); color: var(--deep-forest); }
+h4 { font-size: var(--fs-h4); color: var(--deep-forest); }
+
+a { color: var(--berry); }
+a:hover { color: var(--berry-dark); }
+
+/* ---------- Navbar ---------- */
+.site-nav {
+  background-color: var(--warm-linen);
+  --bs-navbar-brand-color: var(--deep-forest);
+  --bs-navbar-brand-hover-color: var(--deep-forest);
+  --bs-navbar-color: var(--charcoal-bark);
+  --bs-navbar-hover-color: var(--berry);
+  --bs-navbar-active-color: var(--deep-forest);
+}
+
+/* Brand: the BH monogram logo (from the logo site) with the name beside it.
+   Each SVG has its own background, matching the navbar in its mode. */
+.site-nav .navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0;
+}
+
+/* Name with the tagline stacked underneath */
+.site-nav .brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.site-nav .brand-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: var(--deep-forest);
+}
+
+.site-nav .brand-tagline {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 0.8rem;
+  line-height: 1;
+  color: var(--moss);
+}
+
+/* Medium screens and smaller: logo only */
+@media (max-width: 991.98px) {
+  .site-nav .brand-text { display: none; }
+}
+
+/* Just above lg the centred links come close to the name, so tighten their
+   spacing until there's room again */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .site-nav .navbar-nav { --bs-navbar-nav-link-padding-x: 0.6rem !important; }
+}
+
+/* The BH monogram: the logo's shape (images/logo/logomark.svg, no background) filled
+   with Deep Forest, which is the logo colour in each theme (#1F3A2E light, #DCE8D2
+   dark). Being one colour, it fades with the text when the theme switches. */
+.site-nav .brand-mark {
+  /* the logo shape is embedded here (from images/logo/logomark.svg) rather than linked,
+     because browsers won't load a separate file as a mask when the site is opened
+     straight from the computer (file://) */
+  --logomark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 125 105.88'%3E%3Cg%3E%3Cg%3E%3Cpath d='M15.25,10.75h24.46c4.44,0,8.04,4.48,8.04,10v20c0,5.52-3.6,10-8.04,10H15.25' fill='none' stroke='%23000' stroke-width='3.59'/%3E%3Cpath d='M15.25,10.75h26.06c4.73,0,8.57,4.48,8.57,10v20c0,5.52-3.84,10-8.57,10H15.25' fill='none' stroke='%23000' stroke-width='3.5'/%3E%3Cpath d='M15.25,10.75h27.67c5.03,0,9.11,4.48,9.11,10v20c0,5.52-4.08,10-9.11,10H15.25' fill='none' stroke='%23000' stroke-width='3.4'/%3E%3Cpath d='M15.25,10.75h29.28c5.33,0,9.64,4.48,9.64,10v20c0,5.52-4.32,10-9.64,10H15.25' fill='none' stroke='%23000' stroke-width='3.31'/%3E%3Cpath d='M15.25,10.75h30.88c5.62,0,10.18,4.48,10.18,10v20c0,5.52-4.56,10-10.18,10H15.25' fill='none' stroke='%23000' stroke-width='3.21'/%3E%3Cpath d='M15.25,10.28h32.49c5.92,0,10.72,4.53,10.72,10.12v20.24c0,5.59-4.8,10.12-10.72,10.12H15.25' fill='none' stroke='%23000' stroke-width='3.12'/%3E%3C/g%3E%3Cg%3E%3Cpath d='M15.25,52.8h32.46c5.92,0,10.72,4.38,10.72,9.78v19.57c0,5.4-4.8,9.78-10.72,9.78H15.25' fill='none' stroke='%23000' stroke-width='3.07'/%3E%3Cpath d='M15.25,52.8h30.86c5.62,0,10.18,4.44,10.18,9.83v19.53c0,5.39-4.56,9.77-10.18,9.77H15.25' fill='none' stroke='%23000' stroke-width='3.16'/%3E%3Cpath d='M15.25,52.8h29.25c5.33,0,9.65,4.5,9.65,9.88v19.5c0,5.38-4.32,9.75-9.65,9.75H15.25' fill='none' stroke='%23000' stroke-width='3.25'/%3E%3Cpath d='M15.25,52.8h27.65c5.03,0,9.12,4.56,9.12,9.93v19.47c0,5.38-4.08,9.73-9.11,9.73H15.25' fill='none' stroke='%23000' stroke-width='3.34'/%3E%3Cpath d='M15.25,52.8h26.04c4.74,0,8.58,4.62,8.58,9.98v19.43c0,5.37-3.84,9.72-8.58,9.72H15.25' fill='none' stroke='%23000' stroke-width='3.43'/%3E%3Cpath d='M15.25,52.8h24.44c4.44,0,8.05,4.68,8.05,10.03v19.4c0,5.36-3.6,9.7-8.04,9.7H15.25' fill='none' stroke='%23000' stroke-width='3.53'/%3E%3Cpath d='M15.25,52.8h26.04c4.74,0,8.58,4.62,8.58,9.98v19.43c0,5.37-3.84,9.72-8.58,9.72H15.25' fill='none' stroke='%23000' stroke-width='3.44'/%3E%3Cpath d='M15.25,52.8h27.65c5.03,0,9.12,4.56,9.12,9.93v19.47c0,5.38-4.08,9.73-9.11,9.73H15.25' fill='none' stroke='%23000' stroke-width='3.36'/%3E%3Cpath d='M15.25,52.8h29.25c5.33,0,9.65,4.5,9.65,9.88v19.5c0,5.38-4.32,9.75-9.65,9.75H15.25' fill='none' stroke='%23000' stroke-width='3.27'/%3E%3Cpath d='M15.25,52.8h30.86c5.62,0,10.18,4.44,10.18,9.83v19.53c0,5.39-4.56,9.77-10.18,9.77H15.25' fill='none' stroke='%23000' stroke-width='3.17'/%3E%3Cpath d='M15.25,52.8h32.46c5.92,0,10.72,4.38,10.72,9.78v19.57c0,5.4-4.8,9.78-10.72,9.78H15.25' fill='none' stroke='%23000' stroke-width='3.07'/%3E%3C/g%3E%3Cg%3E%3Cpath d='M109.14,9.13v30.81c0,5.67-3.68,10.27-8.22,10.27h-16.44c-4.54,0-8.22-4.6-8.22-10.27V8.69' fill='none' stroke='%23000' stroke-width='3.67'/%3E%3Cpath d='M109.14,9.13v30.89c0,5.69-3.93,10.3-8.77,10.3h-17.53c-4.84,0-8.77-4.61-8.77-10.3V8.69' fill='none' stroke='%23000' stroke-width='3.59'/%3E%3Cpath d='M109.14,9.13v30.97c0,5.7-4.17,10.32-9.32,10.32h-18.63c-5.14,0-9.32-4.62-9.32-10.32V8.69' fill='none' stroke='%23000' stroke-width='3.5'/%3E%3Cpath d='M109.14,9.13v31.05c0,5.72-4.42,10.35-9.86,10.35h-19.73c-5.45,0-9.86-4.63-9.86-10.35V8.69' fill='none' stroke='%23000' stroke-width='3.4'/%3E%3Cpath d='M109.14,9.13v31.14c0,5.73-4.66,10.38-10.41,10.38h-20.82c-5.75,0-10.41-4.65-10.41-10.38V8.69' fill='none' stroke='%23000' stroke-width='3.31'/%3E%3Cpath d='M109.14,9.13v31.22c0,5.75-4.91,10.41-10.96,10.41h-21.92c-6.05,0-10.96-4.66-10.96-10.41V8.69' fill='none' stroke='%23000' stroke-width='3.2'/%3E%3C/g%3E%3Cg%3E%3Cpath d='M76.26,93.69v-30.55c0-5.55,3.68-10.05,8.22-10.05h16.44c4.54,0,8.22,4.5,8.22,10.05v30.15' fill='none' stroke='%23000' stroke-width='3.64'/%3E%3Cpath d='M74.07,93.69v-30.6c0-5.56,3.93-10.06,8.77-10.06h17.53c4.84,0,8.77,4.51,8.77,10.06v30.19' fill='none' stroke='%23000' stroke-width='3.55'/%3E%3Cpath d='M71.88,93.69v-30.64c0-5.57,4.17-10.08,9.32-10.08h18.63c5.14,0,9.32,4.51,9.32,10.08v30.24' fill='none' stroke='%23000' stroke-width='3.45'/%3E%3Cpath d='M69.69,93.69v-30.68c0-5.57,4.42-10.09,9.86-10.09h19.73c5.45,0,9.86,4.52,9.86,10.09v30.28' fill='none' stroke='%23000' stroke-width='3.36'/%3E%3Cpath d='M67.5,93.69v-30.72c0-5.58,4.66-10.11,10.41-10.11h20.82c5.75,0,10.41,4.53,10.41,10.11v30.32' fill='none' stroke='%23000' stroke-width='3.26'/%3E%3Cpath d='M65.3,93.69v-30.77c0-5.59,4.91-10.12,10.96-10.12h21.92c6.05,0,10.96,4.53,10.96,10.12v30.37' fill='none' stroke='%23000' stroke-width='3.16'/%3E%3C/g%3E%3Cpath d='M109.14,8.69v85V8.69Z' fill='none' stroke='%23000' stroke-width='3.94'/%3E%3Crect x='85.31' y='49.04' width='25.26' height='5.44'/%3E%3Cpath d='M15.25,8.72v84.98V8.72Z' fill='none' stroke='%23000' stroke-width='3.94'/%3E%3C/g%3E%3C/svg%3E");
+  display: block;
+  flex: none;
+  height: 64px;
+  aspect-ratio: 125 / 105.88;
+  background-color: var(--deep-forest);
+  -webkit-mask: var(--logomark) center / contain no-repeat;
+  mask: var(--logomark) center / contain no-repeat;
+}
+
+@media (max-width: 991.98px) {
+  .site-nav .brand-mark { height: 48px; }
+}
+
+/* Scrolled down the page: the navbar shrinks to 90% of its height (logo, brand
+   text and padding scale; the links and theme switch keep their size). A matching
+   bottom margin holds the page content still while it shrinks. */
+@property --bs-navbar-padding-y {  /* registered so the padding can animate */
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0.5rem;
+}
+
+.site-nav { transition: --bs-navbar-padding-y 0.25s ease, margin-bottom 0.25s ease; }
+.site-nav .brand-mark { transition: height 0.25s ease; }
+.site-nav .brand-name,
+.site-nav .brand-tagline { transition: font-size 0.25s ease; }
+
+.site-nav.is-scrolled {
+  --bs-navbar-padding-y: 0.45rem;
+  margin-bottom: calc(0.1rem + 6.4px);  /* the padding and logo height it lost */
+}
+.site-nav.is-scrolled .brand-mark { height: 57.6px; }
+.site-nav.is-scrolled .brand-name { font-size: 1.08rem; }
+.site-nav.is-scrolled .brand-tagline { font-size: 0.72rem; }
+
+/* Smaller screens: the 45px menu button sets the row height once the logo is
+   smaller than it, so the padding makes up the rest of the 10% */
+@media (max-width: 991.98px) {
+  .site-nav.is-scrolled {
+    --bs-navbar-padding-y: 0.4rem;
+    margin-bottom: calc(0.2rem + 3px);
+  }
+  .site-nav.is-scrolled .brand-mark { height: 43.2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-nav,
+  .site-nav .brand-mark,
+  .site-nav .brand-name,
+  .site-nav .brand-tagline { transition: none; }
+}
+
+
+.site-nav .nav-link {
+  color: var(--charcoal-bark);
+  font-weight: 400;
+}
+
+.site-nav .nav-link:hover,
+.site-nav .nav-link:focus-visible {
+  color: var(--berry);
+}
+
+.site-nav .nav-link.active {
+  color: var(--deep-forest);
+  font-weight: 700;
+}
+
+/* Hamburger button blends into the navbar (focus ring still shows) */
+.site-nav .navbar-toggler { border-color: var(--warm-linen); }
+
+/* Dark mode switch: a small track with a sliding sun/moon thumb.
+   Inside the collapsed phone menu it gets a visible "Dark mode" label. */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0;
+  border: 0;
+  background: none;
+  color: var(--charcoal-bark);
+  font-family: var(--font-body);
+}
+
+.theme-toggle-track {
+  position: relative;
+  display: inline-block;
+  width: 2.6rem;
+  height: 1.45rem;
+  border: 2px solid var(--moss);
+  border-radius: 999px;
+  background-color: var(--sage-mist);
+  transition: background-color 0.3s ease;
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 50%;
+  left: 0.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 50%;
+  background-color: var(--btn-bg);
+  color: #fff;
+  font-size: 0.65rem;
+  transform: translateY(-50%);
+  transition: left 0.3s ease, background-color 0.3s ease;
+}
+
+/* Position and icon follow the theme on <html>, which is set before the page draws,
+   so the switch appears in place on load and only slides when clicked */
+[data-bs-theme="dark"] .theme-toggle-thumb { left: calc(100% - 1.2rem); }
+
+/* Sun while light, moon while dark */
+.theme-toggle .bi-moon-stars-fill,
+[data-bs-theme="dark"] .theme-toggle .bi-sun-fill { display: none; }
+[data-bs-theme="dark"] .theme-toggle .bi-moon-stars-fill { display: inline; }
+
+.theme-toggle:hover .theme-toggle-track { background-color: color-mix(in srgb, var(--moss) 25%, var(--sage-mist)); }
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--berry);
+  outline-offset: 3px;
+  border-radius: 0.5rem;
+}
+
+/* Large screens: nav links centred on the navbar itself (not in the gap between
+   the brand and the switch, which are different widths); the switch sits at
+   the right end. The container is position: relative (see below). */
+@media (min-width: 992px) {
+  .site-nav .navbar-nav {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    --bs-navbar-nav-link-padding-x: 1rem;  /* more space between the links */
+  }
+
+  .theme-toggle-wrap { margin-left: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle-thumb, .theme-toggle-track, body { transition: none; }
+}
+
+/* Theme switch fade: while js/theme.js holds .theme-fade on <html>, every colour on
+   the page (text, backgrounds, borders, SVG shapes, the logo) fades to the new theme
+   together. The live page changes colour in place, so text stays perfectly still;
+   an earlier whole-page snapshot cross-fade made text shimmer as it swapped. */
+.theme-fade,
+.theme-fade *,
+.theme-fade *::before,
+.theme-fade *::after {
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out,
+    border-color 0.3s ease-in-out,
+    outline-color 0.3s ease-in-out,
+    text-decoration-color 0.3s ease-in-out,
+    fill 0.3s ease-in-out,
+    stroke 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out,
+    opacity 0.3s ease-in-out !important;
+}
+
+/* the switch's thumb keeps sliding while the colours fade */
+.theme-fade .theme-toggle-thumb {
+  transition: left 0.3s ease, background-color 0.3s ease !important;
+}
+
+/* The navbar shares the main content container (see below), so its edges line
+   up with the page content. Its bottom border spans that content width, drawn
+   at the bottom edge of the navbar. */
+.site-nav > .container-lg { position: relative; }
+
+.site-nav > .container-lg::after {
+  content: "";
+  position: absolute;
+  left: calc(var(--bs-gutter-x) * 0.5);
+  right: calc(var(--bs-gutter-x) * 0.5);
+  bottom: calc(-1 * var(--bs-navbar-padding-y));
+  border-bottom: 2px dotted var(--moss);
+}
+
+/* Line the brand up with the content's left edge */
+.site-nav .navbar-brand { margin-right: 0; }
+
+/* ---------- Main content container ---------- */
+/* Cap the page width at 1140px; the navbar shares the cap so its edges stay
+   lined up with the content */
+.main-content,
+.site-nav > .container-lg,
+.footer > .container-lg {
+  max-width: 1140px;
+}
+
+/* 12px side margins at every screen size on the page, navbar and footer
+   containers. Once the screen is wide enough for the 1140px cap, the
+   containers center and the margins grow beyond 12px. */
+.main-content,
+.site-nav > .container-lg,
+.footer > .container-lg {
+  width: calc(100% - 24px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-content {
+  margin-top: 3px;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  padding-bottom: 1.25rem;
+  text-align: center;
+}
+
+/* Top border spans only the content width, matching the navbar line.
+   The footer's 5px horizontal padding lives here so the line can reach
+   the content edges. */
+.footer-inner {
+  border-top: 2px dotted var(--moss);
+  padding: 1.25rem 5px 0;
+}
+
+.footer p { margin-bottom: 0.5rem; }
+
+.footer .social-link {
+  color: var(--charcoal-bark);
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.footer .social-link:hover,
+.footer .social-link:focus-visible {
+  color: var(--berry);
+}
+
+/* ---------- Buttons ---------- */
+.btn-berry {
+  --bs-btn-bg: var(--btn-bg);
+  --bs-btn-border-color: var(--btn-bg);
+  --bs-btn-color: #fff;
+  --bs-btn-hover-bg: var(--btn-bg-hover);
+  --bs-btn-hover-border-color: var(--btn-bg-hover);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-bg: var(--btn-bg-hover);
+  --bs-btn-active-border-color: var(--btn-bg-hover);
+  --bs-btn-active-color: #fff;
+  --bs-btn-focus-shadow-rgb: 138, 63, 100;
+  font-weight: 700;
+}
+
+/* Diagonal arrow in "View Case Study" buttons. Drawn as an SVG so its line
+   weight can match bold Figtree: the bold stem is 0.13em, which is 2.08 units
+   in this 16-unit (1em) viewBox, so it scales with the button text. */
+.btn-arrow {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.08;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Secondary outline button (e.g. "Back to Projects"), Moss in both themes */
+.btn-outline-moss {
+  --bs-btn-color: var(--moss);
+  --bs-btn-border-color: var(--moss);
+  --bs-btn-hover-color: var(--warm-linen);
+  --bs-btn-hover-bg: var(--moss);
+  --bs-btn-hover-border-color: var(--moss);
+  --bs-btn-active-color: var(--warm-linen);
+  --bs-btn-active-bg: var(--moss);
+  --bs-btn-active-border-color: var(--moss);
+  --bs-btn-focus-shadow-rgb: 79, 110, 64;
+}
+
+/* ---------- Hero (index) ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(85vh - 4rem);
+  padding: 4rem 1.5rem;
+  margin-bottom: 3rem;
+  animation: heroGrow 0.8s ease-out both;
+}
+
+/* Placeholder vector graphic sits behind the hero text. It stretches past the
+   hero box, up to the navbar's bottom edge (main's 2rem top padding + 3px
+   margin) and down to the Featured Work banner (the hero's 3rem bottom margin),
+   so its fades run right into those two edges. */
+.hero .hero-graphic {
+  position: absolute;
+  top: calc(-2rem - 3px);
+  bottom: -3rem;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 5rem + 3px);
+  z-index: 0;
+  /* Fade the shapes out toward every edge so they never end in a hard clipped line */
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent 0, #000 15%, #000 85%, transparent 100%),
+    linear-gradient(to right, transparent 0, #000 10%, #000 90%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to bottom, transparent 0, #000 15%, #000 85%, transparent 100%),
+    linear-gradient(to right, transparent 0, #000 10%, #000 90%, transparent 100%);
+  mask-composite: intersect;
+}
+
+/* Hero shapes take their colours from the palette, so they follow the theme */
+.hero-graphic [fill="#DDE6D5"] { fill: var(--sage-mist); }
+.hero-graphic [fill="#4F6E40"] { fill: var(--moss); }
+.hero-graphic [stroke="#4F6E40"] { stroke: var(--moss); }
+.hero-graphic [fill="#8A3F64"] { fill: var(--berry); }
+.hero-graphic [stroke="#8A3F64"] { stroke: var(--berry); }
+.hero-graphic [fill="#1F3A2E"] { fill: var(--deep-forest); }
+.hero-graphic [stroke="#1F3A2E"] { stroke: var(--deep-forest); }
+
+/* Hero shape clusters. The graphic is cropped from both sides as the screen
+   narrows, so each cluster glides inward and shrinks to stay in view.
+   Translations are in SVG units (the 1200 x 720 viewBox); each cluster
+   scales around its own centre. */
+.hero .hg {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.8s ease;
+}
+
+/* Large screens: lift the top clusters slightly so they clear the heading */
+.hero .hg-tl { transform: translate(0, -55px); }
+.hero .hg-tr { transform: translate(0, -80px); }
+
+/* Below lg the clusters move into the strips above and below the hero text
+   (positions measured for medium screens, where about units 275-925 are
+   visible). They stay put below that, so narrower screens crop them. */
+@media (max-width: 991.98px) {
+  /* Full size (no shrinking when the navbar collapses); the clusters only
+     glide inward, clearing the text above and below */
+  .hero .hg-tl { transform: translate(200px, -85px); }
+  .hero .hg-tr { transform: translate(-180px, -105px); }
+  .hero .hg-ml { transform: translate(230px, 80px); }
+  .hero .hg-br { transform: translate(-230px, 70px); }
+}
+
+.hero .hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Phones: slimmer side padding gives the heading room to stay on two lines, and
+   a minimum height keeps the shapes clear of the text on short screens */
+@media (max-width: 575.98px) {
+  .hero {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    min-height: max(calc(85vh - 4rem), 36rem);
+  }
+}
+
+/* Scales down on narrow screens so the longest word never spills past the hero */
+.hero h1 { font-size: clamp(2rem, 1.2rem + 4vw, calc(var(--fs-h1) * 1.2)); }
+
+.hero .hero-subtitle {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--fs-h4);
+  color: var(--moss);
+  margin-bottom: 2rem;
+}
+
+/* Same grow-in entrance as the hero, for the top of other pages */
+.grow-in { animation: heroGrow 0.8s ease-out both; }
+.grow-in-delay { animation-delay: 0.15s; }
+
+@keyframes heroGrow {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ---------- Section banner (index "Featured Work") ---------- */
+/* A Sage Mist panel holding the heading and the project cards */
+.section-banner {
+  background-color: var(--sage-mist);
+  border-radius: 0.75rem;
+  padding: 2rem;
+}
+
+.section-banner h2 { margin-bottom: 1.5rem; }
+
+/* Cards sit on Warm Linen so they stand out from the Sage Mist banner */
+.section-banner .project-card { background-color: var(--warm-linen); }
+
+@media (max-width: 575.98px) {
+  .section-banner { padding: 1.5rem 1rem; }
+}
+
+/* ---------- Project cards ---------- */
+.project-card {
+  background-color: var(--sage-mist);
+  border: none;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 0.75rem 1.5rem var(--shadow);
+}
+
+.project-card .card-img-link {
+  display: block;
+  height: 100%;
+}
+
+.project-card .card-img-side {
+  display: block;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+/* Card photos whose subject must show top to bottom (e.g. the Mosaic phone).
+   Stacked cards (below md) are a wide 240px strip, which crops the top and
+   bottom of the photo; keep these no wider than 2:1 and framed a little high,
+   where the phone sits. */
+@media (max-width: 767.98px) {
+  .project-card .card-img-side.card-img-full-height {
+    height: auto;
+    min-height: 240px;
+    aspect-ratio: 2 / 1;
+    object-position: 50% 30%;
+  }
+}
+
+/* Square mockup images (e.g. Project 2's laptop, with gradient space around it so
+   any crop only trims background). On md and up, size it as 3:2 so the card stays
+   the same height as the others; on stacked cards, frame the centre, where the
+   laptop sits. */
+@media (min-width: 768px) {
+  .project-card .card-img-side.card-img-mockup { aspect-ratio: 3 / 2; }
+}
+
+@media (max-width: 767.98px) {
+  .project-card .card-img-side.card-img-full-height.card-img-mockup { object-position: 50% 50%; }
+}
+
+/* Three-phone card mockups (Mosaic, Our Table) built from layers: the flat
+   background plus each phone as its own image, placed where it sits in the square
+   mockup. The square "stage" covers the card's image area, centred, like
+   object-fit: cover. On hover the side phones ease outward and tilt away from the
+   centre phone. */
+.project-card .card-phones {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--phones-bg);
+  container-type: size;
+}
+
+.card-phones-stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100cqw, 100cqh);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+}
+
+.cp-phone {
+  position: absolute;
+  display: block;
+  height: auto;
+  transform-origin: 50% 90%;
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.cp-front { z-index: 1; }
+
+.project-card:hover .cp-left,
+.project-card:focus-within .cp-left { transform: translateX(-8%) rotate(-4deg); }
+
+.project-card:hover .cp-right,
+.project-card:focus-within .cp-right { transform: translateX(8%) rotate(4deg); }
+
+.project-card .card-tag {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--berry);
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .project-card .card-img-side {
+    height: 100%;
+    min-height: 300px;
+  }
+}
+
+/* Cards grow in like the hero when they scroll into view.
+   The .js class is set in <head>, so cards stay visible if scripts are off. */
+.js .reveal { opacity: 0; }
+
+.js .reveal.is-visible {
+  animation: heroGrow 0.8s ease-out both;
+}
+
+/* Wireframes cascade left to right within each row of five */
+.wireframe-grid > :nth-child(5n + 2) .reveal { animation-delay: 0.08s; }
+.wireframe-grid > :nth-child(5n + 3) .reveal { animation-delay: 0.16s; }
+.wireframe-grid > :nth-child(5n + 4) .reveal { animation-delay: 0.24s; }
+.wireframe-grid > :nth-child(5n + 5) .reveal { animation-delay: 0.32s; }
+
+/* ---------- About page ---------- */
+.about-photo {
+  width: 300px;
+  max-width: 100%;
+  border-radius: 0.75rem;
+}
+
+/* Heading + list groups (Skills, Tools, Education).
+   md and smaller: heading above its list, left edges matching the Bio text.
+   lg: heading and list sit side by side on the same 2/10 grid as the Bio row. */
+
+/* Faint section divider */
+.about-divider {
+  border: 0;
+  border-top: 1px dotted color-mix(in srgb, var(--moss) 60%, transparent);
+  opacity: 1;
+  margin: 0 0 4rem;  /* matches the space above: row margin + the text's own bottom margin */
+}
+
+/* Intro H1 scales down on narrow screens, the same way as the home page hero */
+.about-content h1 { font-size: clamp(2rem, 1.2rem + 4vw, var(--fs-h1)); }
+
+/* Extra breathing room between each heading and the text/list beneath it */
+.about-content h4 { margin-bottom: 1rem; }
+
+/* Small screens: headings centered, text stays left-aligned */
+@media (max-width: 767.98px) {
+  .about-content h4 { text-align: center; }
+}
+
+@media (min-width: 992px) {
+  .about-group {
+    display: grid;
+    column-gap: 1.5rem;
+    grid-template-columns: calc(33.333% - 1rem) 1fr;  /* half-width row: 2 + 4 columns */
+  }
+
+  .about-group.about-group-full {
+    grid-template-columns: calc(16.667% - 1.25rem) 1fr;  /* full-width row: 2 + 10 columns */
+  }
+}
+
+/* Education: degree on the left, school pushed to the right */
+.edu-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 2rem;
+}
+
+/* Small screens: school drops below its degree */
+@media (max-width: 575.98px) {
+  .edu-item { flex-direction: column; }
+}
+
+.edu-item + .edu-item {
+  border-top: 1px dotted color-mix(in srgb, var(--moss) 35%, transparent);
+  padding-top: 0.5rem;
+}
+
+/* Get in Touch circle */
+.contact-circle {
+  position: relative;
+  width: min(440px, 100%);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.contact-circle img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contact-circle::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(31, 58, 46, 0.6);
+}
+
+.contact-circle .contact-circle-content {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.contact-circle h2 { color: #F6F3EA; }  /* always light: sits on a dark photo overlay */
+
+/* ---------- Case study pages ---------- */
+/* Headings sit close to the text beneath them (the tag above the H1 and the
+   H1 itself keep their own spacing) */
+.case-study :is(h2, h3, h4):not(.cs-eyebrow) { margin-bottom: 0.25rem; }
+
+.cs-section { margin-bottom: 5rem; }
+
+.cs-divider {
+  border: 0;
+  border-top: 2px dotted var(--moss);
+  opacity: 1;
+  margin: 0 0 5rem;
+}
+
+/* Timeframe / My Role / Tools row sits snug between its two divider lines */
+.cs-divider.cs-divider-tight { margin-bottom: 2rem; }
+
+/* Case study tabs (Full Case Study / TLDR): they sit on the dotted divider line,
+   and the open tab is underlined in Berry */
+.cs-tabs {
+  gap: 0.5rem;
+  margin-bottom: 4rem;
+  border-bottom: 2px dotted var(--moss);
+  scroll-margin-top: 120px;  /* clear the sticky navbar */
+}
+
+.cs-tabs .nav-link {
+  margin-bottom: -2px;
+  padding: 0.75rem 1.25rem;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  background: none;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--charcoal-bark);
+}
+
+/* Phones: tighter tabs so both stay on one row */
+@media (max-width: 575.98px) {
+  .cs-tabs { flex-wrap: nowrap; gap: 0.25rem; }
+  .cs-tabs .nav-link { padding: 0.75rem 0.75rem; font-size: 1.1rem; }
+}
+
+.cs-tabs .nav-link:hover { color: var(--berry); }
+
+.cs-tabs .nav-link.active {
+  color: var(--berry);
+  border-bottom-color: var(--berry);
+}
+
+.cs-tabs .nav-link:focus-visible {
+  outline: 2px solid var(--berry);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+.cs-meta { margin-bottom: 1rem; }
+
+.cs-eyebrow {
+  color: var(--moss);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: var(--fs-body);
+}
+
+.cs-image {
+  width: 100%;
+  border-radius: 0.75rem;
+  object-fit: cover;
+}
+
+/* Wireframe placeholders, sized to the iPhone 17 Figma frame (402 x 874) */
+.wireframe-placeholder,
+.wireframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 402 / 874;
+  border-radius: 0.75rem;
+}
+
+.wireframe { object-fit: cover; }
+
+/* Click-through flow viewer (Before and After): one phone screen at a time inside a
+   phone frame, stepped through with the screen itself or the arrow buttons */
+.flow-viewer {
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.flow-phone {
+  padding: 10px;
+  border-radius: 42px;
+  background: #1C1D1F;
+  box-shadow: inset 0 0 0 2px #3A3C40, 0 18px 40px -18px rgba(0, 0, 0, 0.45);
+}
+
+[data-bs-theme="dark"] .flow-phone {
+  box-shadow: inset 0 0 0 2px #3A3C40, 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.flow-screen {
+  position: relative;
+  aspect-ratio: 402 / 874;
+  overflow: hidden;
+  border-radius: 32px;   /* clips the Figma frames' own rounded corners */
+  background: #FFFFFF;
+  cursor: pointer;
+}
+
+/* Screens stack; the new one cross-fades in over the previous one, which stays
+   underneath until the fade finishes (timing matches FADE in the page script) */
+.flow-screen img {
+  position: absolute;
+  inset: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flow-screen img.is-prev {
+  display: block;
+  z-index: 1;
+}
+
+.flow-screen img.is-active {
+  display: block;
+  z-index: 2;
+  animation: flowIn 0.6s ease;
+}
+
+@keyframes flowIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-screen img.is-active { animation: none; }
+}
+
+/* Countdown to the next screen; filled by the page script */
+.flow-progress {
+  height: 4px;
+  margin: 1rem 10px 0;
+  overflow: hidden;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--moss) 22%, transparent);
+}
+
+.flow-progress span {
+  display: block;
+  height: 100%;
+  background: var(--moss);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.flow-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.flow-btn {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 2px solid var(--moss);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--moss);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.flow-btn:hover,
+.flow-btn:focus-visible {
+  background: var(--moss);
+  color: var(--warm-linen);
+}
+
+.flow-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.flow-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.flow-count { font-size: var(--fs-small); }
+
+.wireframe-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  border: 2px dashed color-mix(in srgb, var(--moss) 50%, transparent);
+  background-color: var(--sage-mist);
+  color: var(--deep-forest);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  text-align: center;
+}
+
+.wireframe-placeholder small {
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+/* Before / after "slide to reveal" comparison.
+   The before image sits on top and is clipped at --pos; an invisible range input
+   covers the whole image so dragging, tapping or arrow keys move the divider. */
+.ba-slider {
+  --pos: 50%;
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  touch-action: pan-y;
+}
+
+/* Wide shape only at medium, where the slider spans the full content width;
+   phones and the 8-column large-screen version stay 4:3 so there's room to drag */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .ba-slider { aspect-ratio: 16 / 7; }
+}
+
+.ba-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+}
+
+.ba-before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+
+.ba-label {
+  position: absolute;
+  top: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background-color: rgba(31, 58, 46, 0.75);
+  color: #fff;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+/* A label fades out while the divider is over its side of the text */
+.ba-label.is-hidden { opacity: 0; }
+
+.ba-label-before { left: 0.75rem; }
+.ba-label-after { right: 0.75rem; }
+
+/* Divider line with a round handle */
+.ba-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos);
+  width: 3px;
+  margin-left: -1.5px;
+  background-color: var(--warm-linen);
+  box-shadow: 0 0 0 1px rgba(31, 58, 46, 0.25);
+  pointer-events: none;
+}
+
+.ba-handle::after {
+  content: "\2039\00a0\203A";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  transform: translate(-50%, -50%);
+  border: 2px solid var(--berry);
+  border-radius: 50%;
+  background-color: var(--warm-linen);
+  color: var(--berry);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 0.25rem 0.75rem rgba(31, 58, 46, 0.25);
+}
+
+.ba-range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+  -webkit-appearance: none;
+  appearance: none;
+  /* Sideways finger drags move the slider; vertical swipes still scroll the page */
+  touch-action: pan-y;
+}
+
+/* 1px thumb so the slider value maps exactly onto the image width */
+.ba-range::-webkit-slider-thumb { -webkit-appearance: none; width: 1px; height: 100%; }
+.ba-range::-moz-range-thumb { width: 1px; height: 100%; border: 0; }
+
+/* Keyboard focus shows on the visible handle */
+.ba-slider:has(.ba-range:focus-visible) .ba-handle::after {
+  outline: 3px solid var(--deep-forest);
+  outline-offset: 2px;
+}
+
+/* Emphasized body text (e.g. the line beside The Challenge) */
+.cs-emphasis {
+  color: var(--berry);
+  font-weight: 700;
+}
+
+.cs-callout {
+  background-color: var(--sage-mist);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+/* Process / method steps */
+.process-steps {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.process-steps li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.process-steps .step {
+  background-color: var(--sage-mist);
+  color: var(--deep-forest);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.process-steps li:not(:last-child)::after {
+  content: "\2192";
+  color: var(--moss);
+  font-weight: 700;
+}
+
+/* Design process steps: icon above the step name */
+.process-steps.has-iterate .step {
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+.process-steps .step-icon {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--moss);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* Design process: an "Iterate" arch rises from a step and arrows back onto the
+   step before it (Prototype -> Ideate, Test -> Prototype).
+   --step-gap-x / --step-gap-y = space between neighbouring pills (gap + arrow + gap),
+   so the arch can span from this pill's centre to the previous pill's centre. */
+.process-steps.has-iterate {
+  --step-gap-x: 1.875rem;
+  --step-gap-y: 2.6875rem;
+  padding-top: 4rem;
+}
+
+/* From md up the design process steps stretch to fill the container width */
+@media (min-width: 768px) {
+  .process-steps.has-iterate li { flex: 1 1 0; }
+  .process-steps.has-iterate li > .step,
+  .process-steps.has-iterate li > .step-wrap { flex: 1 1 auto; }
+
+  /* Slimmer side padding where the row is narrowest, so every step name fits
+     its equal-width box (keeps the arches landing on the step centres) */
+  .process-steps.has-iterate .step { padding-left: 0.5rem; padding-right: 0.5rem; }
+
+  /* Test is the last step (no arrow after it), so its pill is 1.375rem wider;
+     shift the arch so it still lands on Prototype's centre */
+  .process-steps.has-iterate li:last-child .iterate-loop {
+    left: calc(-50% - var(--step-gap-x) + 0.6875rem);
+    width: calc(100% + var(--step-gap-x) - 0.6875rem);
+  }
+}
+
+.process-steps .step-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.process-steps .step-wrap .step { display: block; }
+
+.process-steps .iterate-loop {
+  position: absolute;
+  bottom: calc(100% + 0.6rem);
+  left: calc(-50% - var(--step-gap-x));   /* previous pill's centre */
+  width: calc(100% + var(--step-gap-x));  /* ...to this pill's centre */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--berry);
+  font-size: var(--fs-small);
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.process-steps .iterate-arc {
+  position: relative;
+  align-self: stretch;
+  height: 1.25rem;
+  margin-top: 0.2rem;
+  border: 2px solid var(--berry);
+  border-bottom: 0;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+/* Arrowhead on the previous-step end, pointing down at that pill */
+.process-steps .iterate-arc::after {
+  content: "";
+  position: absolute;
+  left: -6px;
+  bottom: -8px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 8px solid var(--berry);
+}
+
+/* Methods: only the "Iterate" connector sits between Prototyping and Usability
+   Testing (selector outranks the arrow rules, including the small-screen one) */
+.process-steps li.iterate-next:not(:last-child)::after { content: none; }
+
+.process-steps .iterate-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--berry);
+  font-size: var(--fs-small);
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.process-steps .iterate-connector .iterate-arrows {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-style: normal;
+  color: var(--moss);
+}
+
+@media (max-width: 767.98px) {
+  .process-steps { flex-direction: column; }
+  .process-steps li { flex-direction: column; }
+  .process-steps li:not(:last-child)::after { content: "\2193"; }
+
+  /* Steps stack vertically, so the loop moves to the right of the step */
+  /* Column shifts left to leave room for the Iterate arches and labels on the right */
+  .process-steps.has-iterate { padding-top: 0; padding-right: 5.5rem; }
+
+  /* Stacked design-process pills share one width so the arches clear them all */
+  .process-steps.has-iterate li > .step,
+  .process-steps.has-iterate .step-wrap { width: 9rem; }
+
+  /* The arch turns sideways: from this pill's centre up to the previous pill's centre */
+  .process-steps .iterate-loop {
+    bottom: auto;
+    top: calc(-50% - var(--step-gap-y));
+    left: calc(100% + 0.6rem);
+    width: auto;
+    height: calc(100% + var(--step-gap-y));
+    flex-direction: row-reverse;
+    gap: 0.35rem;
+  }
+
+  .process-steps .iterate-arc {
+    height: auto;
+    width: 1.25rem;
+    margin-top: 0;
+    border: 2px solid var(--berry);
+    border-left: 0;
+    border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+  }
+
+  /* Arrowhead on the top end, pointing left at the previous pill */
+  .process-steps .iterate-arc::after {
+    left: -8px;
+    top: -6px;
+    bottom: auto;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 0;
+    border-right: 8px solid var(--berry);
+  }
+
+  .process-steps .iterate-connector { flex-direction: row; gap: 0.5rem; }
+  .process-steps .iterate-connector .iterate-arrows { transform: rotate(90deg); }
+}
+
+/* Pull quotes */
+.pull-quote {
+  border-left: 4px solid var(--berry);
+  padding-left: 1rem;
+  color: var(--berry);
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+.lit-card {
+  background-color: var(--sage-mist);
+  border: none;
+  border-radius: 0.75rem;
+}
+
+/* Stat highlight */
+.stat {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  color: var(--berry);
+  line-height: 1;
+}
+
+.prototype-embed {
+  background-color: var(--sage-mist);
+  border: 2px dashed var(--moss);
+  border-radius: 0.75rem;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .hero,
+  .grow-in { animation: none; }
+  .hero .hg { transition: none; }
+  .js .reveal { opacity: 1; }
+  .js .reveal.is-visible { animation: none; }
+  .project-card { transition: none; }
+  .project-card:hover,
+  .project-card:focus-within { transform: none; }
+  .cp-phone { transition: none; }
+  .project-card:hover .cp-phone,
+  .project-card:focus-within .cp-phone { transform: none; }
+}
